@@ -11,20 +11,22 @@
 
 /* 2.main */
 .auth-block {
-	display: block;
+	position: absolute;
 	border-radius: 60px;
 	width: 55%;
 	min-width: fit-content;
 	height: 500px;
-  	margin: 50px auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	background-color: #e8eff9;
-	box-shadow: 
-    0px 0px 0px #c2d0e3, /* Основная тень */
-    0 0 10px #c2d0e3, /* Убираем тень справа */
-    0 0 10px #c2d0e3, /* Убираем тень слева */
-    0 0 90px #c2d0e3, /* Убираем тень снизу */
-    0 0 90px #c2d0e3; /* Убираем тень сверху */
-}
+	box-shadow:
+	  0px 0px 0px #c2d0e3, /* Основная тень */
+	  0 0 10px #c2d0e3, /* Убираем тень справа */
+	  0 0 10px #c2d0e3, /* Убираем тень слева */
+	  0 0 90px #c2d0e3, /* Убираем тень снизу */
+	  0 0 90px #c2d0e3; /* Убираем тень сверху */
+  }
 
 .auth-block-text{
 	position: relative;
@@ -110,7 +112,7 @@
 
 /* 3. footer */
 footer {
-	position: relative;
+	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -261,6 +263,10 @@ html, body {
 	.form-button-reg {
 		margin-top: 8px;
 		width: 258px;
+	}
+
+	footer {
+		position: relative;
 	}
 
 	.block-footer a {
