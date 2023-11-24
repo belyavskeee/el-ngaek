@@ -235,7 +235,7 @@ html, body {
 		height: 80%;
 		width: 85%;
 		top: 50%;
-		/* min-height: ; */
+		min-height: fit-content;
 	}
 	.auth-block-text{
 		width: 90%;
