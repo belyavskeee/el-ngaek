@@ -1,0 +1,267 @@
+/*
+1. header
+2. main
+3. footer
+4. helpers#c1cfe4
+5. media 1280px
+*/
+
+/* 1. header */
+
+/* 2.main */
+.auth-block {
+	border-radius: 60px;
+	width: 55%;
+	min-width: fit-content;
+	height: 550px;
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	background-color: #e8eff9;
+	box-shadow: 
+    0px 0px 0px #c2d0e3, /* Основная тень */
+    0 0 10px #c2d0e3, /* Убираем тень справа */
+    0 0 10px #c2d0e3, /* Убираем тень слева */
+    0 0 90px #c2d0e3, /* Убираем тень снизу */
+    0 0 90px #c2d0e3; /* Убираем тень сверху */
+}
+
+.auth-block-text{
+	position: relative;
+	color: #617492;
+	margin-top: 20px;
+  	left: 50%;
+  	transform: translate(-50%);
+}
+.auth-block-text h4{
+	padding-top: 40px;
+	text-align: center;
+	margin: 0;
+	font-family: rubick-light;
+}
+.auth-block-text p{
+	padding-bottom: 20px;
+	text-align: center;
+	margin: 0;
+	font-family: rubick-regular;
+	font-weight: bold;
+}
+
+.block-registration {
+    width: fit-content;
+	margin: 10px auto;
+	position: relative;
+	display: flex;
+}
+.block-registration img {
+	padding: 0;
+	margin: 0;
+	height: 330px;
+	width: 330px;
+}
+
+.form-auth {
+	margin-left: 40px;
+	margin-top: 20px;
+}
+
+.form-input {
+	cursor: pointer;
+	background-color: #c5d2e2;
+	border: none;
+	border-radius: 30px;
+	padding: 17px 40px;
+	margin-top: 5px;
+	color: #617492;
+	font-size: 15px;
+	font-family: 'rubick-regular', 'courier new', sans-serif;
+	-webkit-transition-duration: 0.3s; /* Safari */
+  	transition-duration: 0.3s;
+}
+.form-input:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 3px #617492;
+}
+
+.form-button-go {
+	margin-top: 20px;
+	width: 258px;
+	background-color: #4f6384;
+	color: #ffffff;
+}
+.form-button-reg {
+	margin-top: 10px;
+	width: 258px;
+	background-color: #ffffff;
+}
+
+.a-href {
+	display: block;
+    width: fit-content;
+	margin: 40px auto 0 auto;
+	text-decoration: none;
+	text-align: center;
+	color: #617492;
+	font-size: 14px;
+	font-family: 'rubick-light', 'Courier New', Courier, monospace;
+}
+
+
+
+/* 3. footer */
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+}
+footer p{
+	text-align: center;
+	color: #617492;
+	font-size: 12px;
+	font-family: 'rubick-light', 'Courier New', Courier, monospace;
+}
+
+.block-footer {
+	margin: auto;
+	width: fit-content;
+	display: block;
+}
+.block-footer a {
+	margin-left: 40px;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: 'rubick-regular', 'Courier New', Courier, monospace;
+	text-decoration: none;
+	color: #617492;
+}
+
+
+
+/* 4. helpers */
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-color: #dbe6f4;
+}
+
+@font-face {
+	font-family: 'rubick-light';
+	src: url('../fonts/Rubik-Light.ttf');
+}
+
+@font-face {
+	font-family: 'rubick-regular';
+	src: url('../fonts/Rubik-regular.ttf'); 
+}
+
+
+
+
+/* 5. media 1280px */
+@media all and (max-width: 1280px) {
+	.block-registration img {
+		height: 300px;
+		width: 300px;
+	}
+	
+	.form-auth {
+		margin-left: 40px;
+		margin-top: 20px;
+	}
+	
+	.form-input {
+		padding: 13px 25px;
+		margin-top: 5px;
+		font-size: 15px;
+	}
+
+	.form-button-go {
+		margin-top: 20px;
+		width: 231px;
+	}
+	.form-button-reg {
+		margin-top: 10px;
+		width: 231px;
+	}
+
+}
+
+/* 5. media 900px */
+@media all and (max-width: 900px) {
+	.auth-block {
+		height: 500px;
+		width: 85%;
+	}
+	.block-registration img {
+		height: 250px;
+		width: 250px;
+	}
+	
+	.form-auth {
+		margin-left: 30px;
+	}
+	
+	.form-input {
+		padding: 11px 20px;
+		margin-top: 5px;
+		font-size: 14px;
+	}
+
+	.form-button-go {
+		margin-top: 15px;
+		width: 210px;
+		
+	}
+	.form-button-reg {
+		margin-top: 8px;
+		width: 210px;
+	}
+	
+}
+
+/* 5. media 480px */
+@media all and (max-width: 480px) {
+	.auth-block {
+		height: 500px;
+		width: 85%;
+		top: 45%;
+		min-height: fit-content;
+	}
+	.auth-block-text{
+		width: 90%;
+	}
+
+	.block-registration img {
+		display: none;
+	}
+	
+	.form-auth {
+		margin-left: 0;
+	}
+	
+	.form-input {
+		padding: 17px 38px;
+		margin-top: 5px;
+		font-size: 15px;
+	}
+
+	.form-button-go {
+		margin-top: 15px;
+		width: 250px;
+		
+	}
+	.form-button-reg {
+		margin-top: 8px;
+		width: 250px;
+	}
+
+	.block-footer a {
+		display: block;
+		margin: 10px 0 0 0;
+		text-align: center;
+	}
+}
