@@ -7,6 +7,22 @@
 */
 
 /* 1. header */
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-color: #dbe6f4;
+}
+
+@font-face {
+	font-family: 'rubick-light';
+	src: url('../fonts/Rubik-Light.ttf');
+}
+
+@font-face {
+	font-family: 'rubick-regular';
+	src: url('../fonts/Rubik-regular.ttf'); 
+}
 
 /* 2.main */
 .auth-block {
@@ -141,22 +157,7 @@ footer p{
 
 
 /* 4. helpers */
-html, body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	background-color: #dbe6f4;
-}
 
-@font-face {
-	font-family: 'rubick-light';
-	src: url('../fonts/Rubik-Light.ttf');
-}
-
-@font-face {
-	font-family: 'rubick-regular';
-	src: url('../fonts/Rubik-regular.ttf'); 
-}
 
 
 
