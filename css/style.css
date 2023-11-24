@@ -232,7 +232,6 @@ html, body {
 		min-height: 100vh;
 	}
 	.auth-block {
-		height: 80%;
 		width: 85%;
 		top: 50%;
 		min-height: fit-content;
@@ -267,6 +266,7 @@ html, body {
 
 	footer {
 		position: relative;
+		margin-top: 30px;
 	}
 
 	.block-footer a {
