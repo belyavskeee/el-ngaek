@@ -119,6 +119,8 @@ footer {
 	bottom: 0;
 	left: 0;
 	width: 100%;
+	max-height: 20vh;
+	overflow: hidden;
 }
 footer p{
 	text-align: center;
@@ -231,7 +233,7 @@ html, body {
 	}
 	.auth-block {
 		width: 85%;
-		top: 50%;
+		
 		min-height: fit-content;
 	}
 	.auth-block-text{
@@ -270,5 +272,22 @@ html, body {
 		display: block;
 		margin: 10px 0 0 0;
 		text-align: center;
+	}
+}
+
+/* 6. media height 700px */
+@media all and (max-height: 700px) {
+	main {
+		min-height: 100vh;
+	}
+	.auth-block {
+		width: 85%;
+		top: 50%;
+		min-height: fit-content;
+	}
+	
+	footer {
+		position: relative;
+		margin-top: 30px;
 	}
 }
