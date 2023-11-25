@@ -84,17 +84,20 @@
 	outline: none;
 	box-shadow: inset 0 0 0 3px #617492;
 }
+.form-input::placeholder{
+	color: #617492;
+}
 
 .form-button-go {
 	margin-top: 20px;
-	width: 258px;
 	background-color: #4f6384;
 	color: #ffffff;
+	width: 100%;
 }
 .form-button-reg {
 	margin-top: 10px;
-	width: 258px;
 	background-color: #ffffff;
+	width: 100%;
 }
 
 .a-href {
@@ -184,11 +187,9 @@ html, body {
 
 	.form-button-go {
 		margin-top: 20px;
-		width: 231px;
 	}
 	.form-button-reg {
 		margin-top: 10px;
-		width: 231px;
 	}
 
 }
@@ -216,12 +217,9 @@ html, body {
 
 	.form-button-go {
 		margin-top: 15px;
-		width: 210px;
-		
 	}
 	.form-button-reg {
 		margin-top: 8px;
-		width: 210px;
 	}
 	
 }
@@ -256,12 +254,11 @@ html, body {
 
 	.form-button-go {
 		margin-top: 15px;
-		width: 258px;
+
 		
 	}
 	.form-button-reg {
 		margin-top: 8px;
-		width: 258px;
 	}
 
 	footer {
