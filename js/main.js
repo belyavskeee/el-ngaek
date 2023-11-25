@@ -1,17 +1,15 @@
 const swiper = new Swiper('.swiper', {
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
+    allowTouchMove: false,
+    spacebetween: 150,
   });
+
+    $('.btn-next').on('click', function () {
+      swiper.slideNext();
+    });
+
+    $('.btn-prev').on('click', function () {
+      swiper.slidePrev();
+    });
 
   AOS.init({
     // Global settings:

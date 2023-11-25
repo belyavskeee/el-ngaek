@@ -66,6 +66,7 @@
 .form-auth {
 	margin-left: 40px;
 	margin-top: 20px;
+	max-width: 280px;
 }
 
 .form-input {
@@ -75,6 +76,7 @@
 	border-radius: 30px;
 	padding: 17px 40px;
 	margin-top: 5px;
+	width: -webkit-fill-available;
 	color: #617492;
 	font-size: 15px;
 	font-family: 'rubick-regular', 'courier new', sans-serif;
@@ -93,12 +95,12 @@
 	margin-top: 20px;
 	background-color: #4f6384;
 	color: #ffffff;
-	width: 100%;
+	width: 99%;
 }
 .form-button-reg {
 	margin-top: 10px;
 	background-color: #ffffff;
-	width: 100%;
+	width: 99%;
 }
 
 .a-href {
@@ -110,6 +112,15 @@
 	color: #617492;
 	font-size: 14px;
 	font-family: 'rubick-light', Georgia, serif;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.a-href:hover {
+	color: #a3abbb;
+}
+
+.auth-slide {
+	width: 99%;
 }
 
 
@@ -142,6 +153,11 @@ footer p{
 	font-family: 'rubick-regular', Georgia, serif;
 	text-decoration: none;
 	color: #617492;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.block-footer a:hover {
+	color: #a3abbb;
 }
 
 
@@ -209,6 +225,7 @@ html, body {
 	
 	.form-auth {
 		margin-left: 30px;
+		max-width: 200px;
 	}
 	
 	.form-input {
@@ -244,6 +261,8 @@ html, body {
 	
 	.form-auth {
 		margin-left: 0;
+		max-width: 250px;
+		min-width: 80%;
 	}
 	
 	.form-input {
