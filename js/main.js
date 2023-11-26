@@ -11,6 +11,10 @@ const swiper = new Swiper('.swiper', {
       swiper.slidePrev();
     });
 
+    $('.form-button-go').on('click', function () {
+      location.href = "home.html";
+    });
+
   AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function

@@ -7,6 +7,74 @@
 */
 
 /* 1. header */
+header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+  }
+  
+  .block-header {
+	height: fit-content;
+	margin: 30px auto;
+	display: flex;
+  }
+
+.header-img {
+	display: flex;
+}
+.header-img img {
+	background-color: #e8eff9;
+	border-radius: 100%;
+	margin: auto 5px;
+	
+}
+.img-header-set {
+	width: 30px;
+	height: 30px;
+	padding: 10px;
+}
+.img-header-ava {
+	width: 80px;
+	height: 80px;
+}
+
+.header-text {
+	position: static;
+	color: #617492;
+	text-align: center;
+	padding: 30px 90px;
+	background-color: #e8eff9;
+	border-radius: 60px;
+	font-size: 15px;
+	margin: 0 30px;
+}
+.header-text h4{
+	margin: 0;
+	font-family: 'rubick-light', Georgia, serif;
+}
+.header-text p{
+	margin: 0;
+	font-family: 'rubick-regular', 'courier new', sans-serif;
+	font-weight: bold;
+}
+
+.header-tools {
+	display: flex;
+	background-color: #e8eff9;
+	border-radius: 60px;
+	margin: auto 0;
+	height: fit-content;
+	padding: 20px;
+
+}
+.header-tools img {
+	width: 25px;
+	margin: 0 13px;
+	cursor: pointer;
+}
+
 
 
 /* 2.main */
@@ -121,6 +189,63 @@
 	width: 99%;
 }
 
+.main-block {
+	display: flex;
+	box-shadow: none;
+	margin: 0 auto 20px auto;
+	min-height: 0;
+}
+
+.account {
+	padding: 40px;
+}
+.account h3 {
+	display: block;
+	padding: 10px 0;
+	margin: 0 0 20px 0;
+	background-color: #dbe6f4;
+	text-align: center;
+	color: #617492;
+	font-size: 22px;
+	font-weight: 500;
+	font-family: 'rubick-light', Georgia, serif;
+	border-radius: 50px;
+}
+
+.timetable {
+	display: flex;
+}
+
+.block-timetable input {
+	display: block;
+	border: none;
+	background-color: #dbe6f4;
+	padding: 10px 15px;
+	max-width: 100%;
+	width: 100%;
+	margin-top: 5px;
+	border-radius: 50px;
+	text-align: left;
+	color: #617492;
+	font-size: 12px;
+	font-family: 'rubick-regular', Georgia, serif;
+	cursor: pointer;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.block-timetable input:hover {
+	background-color: #c8cfdd;
+}
+
+.block-timetable .day-of-week-timetbl {
+	background-color: #4f6384;
+	color: white;
+	cursor: default;
+	font-weight: lighter;
+	font-family: 'rubick-light', Georgia, serif;
+}
+
+
 
 
 /* 3. footer */
@@ -159,7 +284,7 @@ footer p{
 
 /* 4. helpers */
 html, body {
-	min-height: 100%;
+	height: 100%;
 	min-width: 100%;
 	margin: 0;
 	background-color: #dbe6f4;
@@ -181,7 +306,6 @@ html, body {
 /* 5. media 1280px */
 @media all and (max-width: 1280px) {
 	.auth-block {
-		top: 45%;
 		padding: 0 30px;
 	}
 	.block-registration img {
@@ -244,6 +368,7 @@ html, body {
 	.auth-block {
 		width: 85%;
 		padding: 0 0;
+		margin-bottom: 50px;
 	}
 	.auth-block-text{
 		width: 90%;
