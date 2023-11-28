@@ -23,6 +23,7 @@ header {
 
 .header-img {
 	display: flex;
+	float: left;
 }
 .header-img img {
 	background-color: #e8eff9;
@@ -49,6 +50,7 @@ header {
 	border-radius: 60px;
 	font-size: 15px;
 	margin: 0 30px;
+	clear: both;
 }
 .header-text h4{
 	margin: 0;
@@ -62,6 +64,7 @@ header {
 
 .header-tools {
 	display: flex;
+	float: left;
 	background-color: #e8eff9;
 	border-radius: 60px;
 	margin: auto 0;
@@ -73,6 +76,10 @@ header {
 	width: 25px;
 	margin: 0 13px;
 	cursor: pointer;
+}
+
+.smaller-width {
+	display: none;
 }
 
 
@@ -216,18 +223,25 @@ header {
 	display: flex;
 }
 
+.block-timetable {
+	margin: 0 auto;
+}
+
+.block-timetable-second {
+	margin-left: 20px;
+}
+
 .block-timetable input {
 	display: block;
 	border: none;
 	background-color: #dbe6f4;
 	padding: 10px 15px;
-	max-width: 100%;
 	width: 100%;
 	margin-top: 5px;
 	border-radius: 50px;
 	text-align: left;
 	color: #617492;
-	font-size: 12px;
+	font-size: 10px;
 	font-family: 'rubick-regular', Georgia, serif;
 	cursor: pointer;
 	-webkit-transition-duration: 0.3s; /* Safari */
@@ -243,6 +257,22 @@ header {
 	cursor: default;
 	font-weight: lighter;
 	font-family: 'rubick-light', Georgia, serif;
+}
+
+.datepicker {
+	align-items: center;
+	background-color: #4f6384;
+	margin: 40px  40px 40px 0;
+	width: 200px;
+	height: fit-content;
+	width: 100%;
+	border-radius: 30px;
+}
+.btn-calendar {
+	margin: 0 20px 20px 20px;
+	padding: 15px 0;
+	background-color: #dbe6f4;
+	font-size: 14px;
 }
 
 
@@ -300,6 +330,132 @@ html, body {
 	src: url('../fonts/Rubik-Regular.ttf'); 
 }
 
+:root {
+	--fc-small-font-size: 10px;
+	--fc-page-bg-color: transparent;
+	--fc-neutral-bg-color: transparent;
+	--fc-neutral-text-color: #808080;
+	--fc-border-color: transparent;
+  
+	--fc-button-text-color: #fff;
+	--fc-button-bg-color: transparent;
+	--fc-button-border-color: transparent;
+	--fc-button-hover-bg-color: transparent;
+	--fc-button-hover-border-color: transparent;
+	--fc-button-active-bg-color: transparent;
+	--fc-button-active-border-color: transparent;
+}
+
+.fc-col,
+.fc-day,
+.fc-day-top,
+.fc-day-header,
+.fc-day-grid,
+.fc-widget-content,
+.fc-scrollgrid-liquid {
+    border: none !important;
+    box-sizing: border-box !important;
+}
+
+.fc {
+	text-align: center;
+	width: 90%;
+	height: 90%;
+	margin: 20px auto;
+	font-size: 10px;
+	color: white;
+	font-family: 'rubick-light', Georgia, serif;
+	table-layout: fixed;
+}
+.fc-daygrid-day-top{
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    border-radius: 50px;
+	background-color: #e8eff9;
+	color: #4f6384;
+}
+.fc-daygrid-day.fc-day {
+    direction: ltr; /* Устанавливаем выравнивание текста влево */
+}
+.fc-daygrid-day-number {
+	font-size: 10px;
+	width: 100%;
+	height: 100%;
+    position: relative;
+    z-index: 4;
+}
+.fc .fc-col-header-cell-cushion {
+	font-size: 10px;
+	text-align: center;
+}
+.fc .fc-button .fc-icon {
+	font-size: 10px;
+	
+}
+.fc .fc-toolbar-title {
+	font-size: 10px;
+	font-weight: lighter;
+}
+.fc-daygrid-day-events {
+    display: none;
+}
+.fc .fc-view-harness {
+	min-height: 215px;
+	min-width: 215px;
+}
+.fc-col {
+	width: 14.2857% !important; /* 100% / 7 дней в неделе */
+}
+.fc-day-grid {
+	display: flex;
+	flex-wrap: wrap; /* Добавьте это правило */
+	margin: 0 -2px; /* Добавьте отрицательные отступы для компенсации границ */
+  }
+
+.selected-day {
+    border-radius: 50px;
+    background-color: #a4b7d0;
+    color: #4f6384;
+}
+.fc, .fc * {
+	box-sizing: border-box;
+  }
+  
+  .fc, .fc-view, .fc-content {
+	height: 100%;
+  }
+  
+  /* Календарь */
+  .fc-day-grid {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .fc-day {
+	padding: 0;
+	width: 14.2857%;
+	height: 14.2857%;
+	text-align: center;
+	position: relative;
+  }
+  
+  .fc-day-top, .fc-day-header {
+	text-align: center;
+  }
+  
+  .fc-day, .fc-day-top, .fc-day-header, .fc-widget-content {
+	border: none !important;
+  }
+  
+  .selected-day {
+	border-radius: 50px;
+	background-color: #a4b7d0;
+	color: #4f6384;
+  }
 
 
 
@@ -360,7 +516,31 @@ html, body {
 	.form-button-reg {
 		margin-top: 8px;
 	}
+
+	.main-block {
+		display: block;
+		width: 90%;
+		padding: 0 20px;
+	}
+
+	.account {
+		padding: 40px 0 0 0;
+	}
+
+	.header-text {
+		margin-top: 20px;
+	}
+
+	.bigest-width {
+		display: none;
+	}
+	.smaller-width {
+		display: block;
+	}
 	
+	.header-tools {
+		margin: auto 0 0 60px;
+	}
 }
 
 /* 5. media 480px */
@@ -406,6 +586,49 @@ html, body {
 		margin: 10px 0 0 0;
 		text-align: center;
 	}
+
+	.header-text {
+		padding: 20px 20px;
+		width: 80%;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	.header-tools {
+		margin: auto 0 0 20px;
+	}
+
+	.main-block {
+		display: block;
+		width: 80%;
+		padding: 0 10px 10px 10px;
+	}
+
+	.account {
+		padding: 40px 0 0 0;
+		margin: 0;
+	}
+
+	.timetable {
+		display: block;
+	}
+
+	.block-timetable{
+		margin: 0;
+	}
+	.block-timetable-second {
+		margin-top: 20px;
+	}
+
+	.account h3 {
+		font-size: 14px;
+	}
+
+	.datepicker {
+		padding: 10px 0 0 0;
+	}
+	
+	
 }
 
 /* 6. media height 700px */

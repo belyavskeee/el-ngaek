@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible content="ie="edge">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Мой аккаунт</title>
 	<link rel="stylesheet" href="css/aos.css">
 	<link rel="stylesheet" href="css/swiper-bundle.min.css">
@@ -12,12 +12,16 @@
 </head>
 <body>
     <header>
+		<div class="header-text smaller-width">
+			<h4>УО «Новопольский государственный<br>аграрно-экономический колледж»</h4>
+			<p>Электронный журнал</p>
+		</div>
 		<div class="block-header">
 			<div class="header-img">
 				<img class="img-header-set" src="images/settings.svg" alt="настройки">
 				<img class="img-header-ava" src="images/avatar.svg" alt="мой аккаунт">
 			</div>
-			<div class="header-text">
+			<div class="header-text bigest-width">
 				<h4>УО «Новопольский государственный<br>аграрно-экономический колледж»</h4>
 				<p>Электронный журнал</p>
 			</div>
@@ -38,7 +42,7 @@
 						<input type="button" value="10:00 | 33 ауд. История Беларуси">
 						<input type="button" value="12:00 | 21 ауд. Обществоведение">
 					</div>
-					<div class="block-timetable" style="margin-left: 20px;">
+					<div class="block-timetable block-timetable-second">
 						<input class="day-of-week-timetbl" type="button" value="Вторник, 2 сентября" disabled>
 						<input type="button" value="8:00">
 						<input type="button" value="10:00 | 33 ауд. Экономика организаций">
@@ -48,8 +52,10 @@
 				</div>
 			</div>
 			<div class="datepicker">
-				<input type="date">
-				<input type="button" value="Смотреть расписание">
+				<div id='calendar'>
+
+				</div>
+				<input class="form-input btn-calendar" type="button" value="Смотреть расписание">
 			</div>
 			<div class="">
 
@@ -65,9 +71,10 @@
 		</div>
 		<p>© 2023-2024 Учреждение образования «Новопольский государственный<br>аграрно-экономический колледж»</p>
 	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/index.global.js"></script>
 	<script src="js/aos.js"></script>
 	<script src="js/swiper-bundle.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

@@ -15,6 +15,37 @@ const swiper = new Swiper('.swiper', {
       location.href = "home.html";
     });
 
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        locale: 'ru', // Добавлено свойство для установки локали
+        firstDay: 1, // Установка начала недели на понедельник
+        headerToolbar: {
+          start: 'prev', // Удалите 'today', чтобы убрать кнопку "Today"
+          center: 'title',
+          end: 'next'
+        },
+        dateClick: function (info) {
+          var prevSelectedDay = document.querySelector('.selected-day');
+          if (prevSelectedDay) {
+              prevSelectedDay.classList.remove('selected-day');
+          }
+          info.dayEl.classList.add('selected-day');
+          
+          var selectedDate = info.date;
+          var year = selectedDate.getFullYear();
+          var month = selectedDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0
+          var day = selectedDate.getDate();
+          var formattedDate = year + '-' + month + '-' + day;
+
+          console.log('Выбранная дата:', formattedDate);
+      }
+      });
+      calendar.render();
+    });
+    
   AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
