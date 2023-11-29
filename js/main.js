@@ -15,6 +15,10 @@ const swiper = new Swiper('.swiper', {
       location.href = "home.html";
     });
 
+    $('.timetable input').on('click', function () {
+      location.href = "subject.html";
+    });
+
 
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
