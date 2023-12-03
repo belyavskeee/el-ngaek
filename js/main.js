@@ -19,6 +19,10 @@ const swiper = new Swiper('.swiper', {
       location.href = "subject.html";
     });
 
+    $('.list-subject input').on('click', function () {
+      location.href = "detail-subject.html";
+    });
+
 
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');

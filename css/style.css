@@ -45,15 +45,17 @@ header {
 	position: static;
 	color: #617492;
 	text-align: center;
-	padding: 30px 90px;
+	padding: 20px 90px;
 	background-color: #e8eff9;
 	border-radius: 60px;
 	font-size: 15px;
 	margin: 0 30px;
 	clear: both;
+	line-height: 1.5;
 }
 .header-text h4{
 	margin: 0;
+	font-weight: lighter;
 	font-family: 'rubick-light', Georgia, serif;
 }
 .header-text p{
@@ -142,7 +144,7 @@ header {
 	max-width: 280px;
 }
 
-.form-input {
+.form-input, .buttons input {
 	cursor: pointer;
 	background-color: #c5d2e2;
 	border: none;
@@ -156,11 +158,11 @@ header {
 	-webkit-transition-duration: 0.3s; /* Safari */
   	transition-duration: 0.3s;
 }
-.form-input:focus {
+.form-input:focus, .buttons input:focus {
 	outline: none;
 	box-shadow: inset 0 0 0 3px #617492;
 }
-.form-input::placeholder{
+.form-input::placeholder, .buttons input::placeholder{
 	color: #617492;
 }
 
@@ -367,6 +369,112 @@ header {
 	padding: 0;
 }
 
+.main-block-journal {
+	box-shadow: none;
+	margin: 0 auto 20px auto;
+	min-height: fit-content;
+	display: block;
+	padding: 20px 40px;
+}
+.journal-btns {
+	padding: 40px 20px 0 20px;
+	margin: auto;
+	width: fit-content;
+}
+.journal-btns input{
+	vertical-align: middle;
+	width: fit-content;
+	padding: 0 18px;
+	font-size: 10px;
+	background-color: #dbe6f4;
+	height: 32px;
+	margin: 5px auto 0 0;
+}
+.journal-btns .name-theme {
+	font-family: 'rubick-light';
+	font-weight: lighter;
+	padding: 0 20px 0 20px;
+	background-color: #4f6384;
+	text-align: left;
+    max-width: 250px;
+	color: #fff;
+	white-space: pre-line;
+}
+#journal-btn-homework {
+	white-space: pre-line;
+}
+.journal-btns .journal-prev {
+	background-color: #4f6384;
+	width: 50px;
+  	background-image: url('../images/arrow.svg');
+  	background-repeat: no-repeat;
+  	background-size: 13px 13px; /* Размер изображения */
+  	background-position: center; /* Позиция изображения внутри инпута */
+}.journal-btns .journal-settings {
+	width: 50px;
+  	background-image: url('../images/settings.svg');
+  	background-repeat: no-repeat;
+  	background-size: 20px 20px; /* Размер изображения */
+  	background-position: center; /* Позиция изображения внутри инпута */
+}
+.block-journal {
+	padding: 0 20px 0 20px;
+	width: fit-content;
+	position: relative;
+	margin: auto;
+}
+.journal {
+	padding: 0;
+	margin: 0;
+	width: 593px;
+	overflow: auto;
+}
+.journal table {
+	border-collapse: separate;
+	border-spacing: 8px;
+	empty-cells: show;
+	font-size: 10px;
+	color: #617492;
+	font-size: 11px;
+	font-family: 'rubick-regular', Georgia, serif;
+}
+.journal td, th {
+	background-color: #dbe6f4;
+	width: fit-content;
+	border-radius: 50px;	
+	min-width: 25px;
+	height: 25px;
+}
+.table-fio {
+	border-spacing: 0px;
+	width: 200px;
+	padding: 0 15px;
+	text-align: left;
+}
+.journal input {
+	outline: none;
+	width: 25px;
+    height: 25px;
+	border-radius: 50px;
+	border: none;
+    padding: 0;
+    text-align: center;
+    background-color: #dbe6f4;
+    color: #617492;
+	font-size: 11px;
+	font-family: 'rubick-regular', Georgia, serif;
+	cursor: pointer;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.journal input:hover {
+	background-color: #c8cfdd;
+}
+.journal input:focus {
+	outline: none;
+	box-shadow: inset 0 0 0 1.5px #617492;
+}
+
 
 
 
@@ -552,7 +660,7 @@ html, body {
   ::-webkit-scrollbar {
 	border-radius: 10px;
 	width: 5px;
-	height: 8px;
+	height: 5px;
 	background-color: #f9f9fd;
   }
   
@@ -564,7 +672,7 @@ html, body {
   ::-webkit-scrollbar-track {
 	/* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); */
 	border-radius: 10px;
-	background-color: #f9f9fd;
+	background-color: #dbe6f4;
   }
 
 
@@ -573,6 +681,9 @@ html, body {
 @media all and (max-width: 1280px) {
 	.auth-block {
 		padding: 0 30px;
+	}
+	.main-block-journal {
+		padding: 20px 40px;
 	}
 	.block-registration img {
 		height: 300px;
@@ -653,6 +764,14 @@ html, body {
 	}
 	.block-list-subject, .block-graph {
 		margin: auto;
+	}
+
+	/* .main-block-journal {
+		display: block;
+		width: fit-content;
+	} */
+	.journal {
+		width: 400px;
 	}
 }
 
@@ -759,7 +878,14 @@ html, body {
 		padding: 40px 0 40px 0;
 		width: 90%;
 	}
-	
+	.journal-btns {
+		padding: 40px 10px;
+	}
+	.journal {
+		max-width: 250px;
+		min-width: 200px;
+		margin-bottom: 40px;
+	}
 	
 }
 
