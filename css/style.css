@@ -438,7 +438,14 @@ header {
 	font-size: 11px;
 	font-family: 'rubick-regular', Georgia, serif;
 }
-.journal td, th {
+.journal td {
+	background-color: #dbe6f4;
+	width: fit-content;
+	border-radius: 50px;	
+	min-width: 25px;
+	height: 25px;
+}
+.journal th {
 	background-color: #dbe6f4;
 	width: fit-content;
 	border-radius: 50px;	
@@ -568,10 +575,25 @@ html, body {
 	font-family: 'rubick-light', Georgia, serif;
 	table-layout: fixed;
 }
+.fc table {
+	border-spacing: 5px;
+	padding: none !important;
+}
+.fc .fc-daygrid-day-number{
+	position: relative;
+	padding: 12px 5px !important;
+}
 .fc-daygrid-day-top{
+	position: relative;
 	display: flex;
   	align-items: center;
   	justify-content: center;
+	width: 100%;
+	height: fit-content;
+}
+
+.fc-scroller {
+	overflow: hidden !important;
 }
 
 .fc .fc-daygrid-day.fc-day-today {
@@ -611,11 +633,7 @@ html, body {
 .fc-col {
 	width: 14.2857% !important; /* 100% / 7 дней в неделе */
 }
-.fc-day-grid {
-	display: flex;
-	flex-wrap: wrap; /* Добавьте это правило */
-	margin: 0 -2px; /* Добавьте отрицательные отступы для компенсации границ */
-  }
+
 
 .selected-day {
     border-radius: 50px;
@@ -630,16 +648,8 @@ html, body {
 	height: 100%;
   }
   
-
-  .fc-day-grid {
-	display: flex;
-	flex-wrap: wrap;
-  }
-  
   .fc-day {
-	padding: 0;
-	width: 14.2857%;
-	height: 14.2857%;
+	cursor: pointer;
 	text-align: center;
 	position: relative;
   }
@@ -747,6 +757,12 @@ html, body {
 
 	.account {
 		padding: 40px 0 0 0;
+	}
+
+	.datepicker {
+		padding: 10px 0 0 0;
+		margin: 20px auto 20px auto;
+		width: 90%;
 	}
 
 	.header-text {
@@ -858,11 +874,6 @@ html, body {
 		font-size: 14px;
 	}
 
-	.datepicker {
-		padding: 10px 0 0 0;
-		margin: 20px auto 20px auto;
-		width: 90%;
-	}
 	.info-subject {
 		display: block;
 	}
