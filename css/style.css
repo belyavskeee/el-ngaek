@@ -71,13 +71,36 @@ header {
 	border-radius: 60px;
 	margin: auto 0;
 	height: fit-content;
-	padding: 20px;
+	padding: 5px 2px;
 
 }
 .header-tools img {
 	width: 25px;
-	margin: 0 13px;
 	cursor: pointer;
+}
+
+.timetable-btn {
+	margin: 0 5px 0 5px;
+	padding: 10px;
+	border-radius: 50px;
+}
+
+.timetable-btn img {
+	transition: filter 0.3s ease; /* Добавим анимацию для плавного изменения фильтра */
+}
+
+.active-timetable-btn {
+	background-color: #4f6384;
+}
+
+.active-timetable-btn .timetable-btn img {
+	filter: grayscale(100%) brightness(0) invert(1);
+  }
+
+.timetable-edit-btn {
+	margin: 0 5px 0 0px;
+	padding: 10px;
+	
 }
 
 .smaller-width {
@@ -233,14 +256,15 @@ header {
 	margin-left: 20px;
 }
 
-.block-timetable input {
-	display: block;
+.block-timetable-subject {
+	display: flex;
 	border: none;
 	background-color: #dbe6f4;
-	padding: 10px 15px;
-	width: 100%;
+	padding: 10px 13px;
 	margin-top: 5px;
-	border-radius: 50px;
+	border-radius: 20px;
+	min-width: 200px;
+	max-width: 250px;
 	text-align: left;
 	color: #617492;
 	font-size: 10px;
@@ -249,11 +273,43 @@ header {
 	-webkit-transition-duration: 0.3s; /* Safari */
 	transition-duration: 0.3s;
 }
-.block-timetable input:hover {
+.block-timetable-subject:hover {
 	background-color: #c8cfdd;
 }
 
-.block-timetable .day-of-week-timetbl {
+.block-timetable-subject p {
+	margin: 0;
+	padding: 0;
+	line-height: 1.1;
+	white-space: pre-line;
+}
+.information-sub-timetable {
+	min-width: 110px;
+	max-width: 30%;
+}
+.information-sub-timetable div {
+	background-color: #4f6384;
+	font-family: 'rubick-light', Georgia, serif;
+	color: #fff;
+	border-radius: 15px;
+	padding: 3px 10px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	width: fit-content;
+	text-align: center;
+	align-items: center;
+	float: right;
+}
+
+.day-of-week-timetbl {
+	display: block;
+	border: none;
+	padding: 10px 15px;
+	width: 100%;
+	margin-top: 5px;
+	border-radius: 50px;
+	text-align: left;
+	font-size: 10px;
 	background-color: #4f6384;
 	color: white;
 	cursor: default;
@@ -261,17 +317,20 @@ header {
 	font-family: 'rubick-light', Georgia, serif;
 }
 
+.block-timetable-subject-inform {
+	width: 100%;
+}
+
 .datepicker {
 	align-items: center;
 	background-color: #4f6384;
 	margin: 40px  40px 40px 0;
-	width: 200px;
 	height: fit-content;
-	width: 100%;
-	border-radius: 30px;
+	width: 300px;
+	border-radius: 27px;
 }
 .btn-calendar {
-	margin: 0 10px 10px 10px;
+	margin: 0 5px 5px 5px;
 	padding: 13px 0;
 	background-color: #dbe6f4;
 	font-size: 14px;
@@ -686,6 +745,13 @@ html, body {
 	background-color: #dbe6f4;
   }
 
+  br {
+	display: block;
+	content: "";
+	margin: 0;
+	padding: 0;
+  }
+
 
 
 /* 5. media 1280px */
@@ -868,6 +934,10 @@ html, body {
 	}
 	.block-timetable-second {
 		margin-top: 20px;
+	}
+
+	.block-timetable-subject {
+		max-width: none;
 	}
 
 	.account h3 {
