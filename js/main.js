@@ -12,7 +12,7 @@ const swiper = new Swiper('.swiper', {
     });
 
     $('.form-button-go').on('click', function () {
-      location.href = "home.html";
+      location.href = "timetable.html";
     });
 
     $('.timetable input').on('click', function () {
