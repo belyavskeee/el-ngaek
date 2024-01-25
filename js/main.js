@@ -15,7 +15,7 @@ const swiper = new Swiper('.swiper', {
       location.href = "timetable.html";
     });
 
-    $('.timetable input').on('click', function () {
+    $('.block-timetable-subject').on('click', function () {
       location.href = "subject.html";
     });
 
