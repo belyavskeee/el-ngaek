@@ -798,7 +798,7 @@ html, body {
 /* 5. media 1280px */
 @media all and (max-width: 1280px) {
 	.auth-block {
-		padding: 0 30px;
+		padding: 0 20px;
 	}
 	.main-block-journal {
 		padding: 20px 40px;
@@ -825,7 +825,7 @@ html, body {
 	.form-button-reg {
 		margin-top: 10px;
 	}
-	
+
 	.item-settings-list {
 		margin: 10px 0;
 	}
