@@ -68,6 +68,7 @@ const swiper = new Swiper('.swiper', {
       (inputElement).val(dayOfWeekName + ', ' + dayOfMonth + ' ' + monthName);
     }
 
+  function initializeCalendar() {
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -103,6 +104,12 @@ const swiper = new Swiper('.swiper', {
       });
       calendar.render();
     });
+  }
+
+  // Проверяем, находимся ли мы на нужной странице
+  if (document.body.classList.contains('calendar-page')) {
+    initializeCalendar();
+  }
     
   AOS.init({
     // Global settings:
