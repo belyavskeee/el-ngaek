@@ -23,6 +23,50 @@ const swiper = new Swiper('.swiper', {
       location.href = "detail-subject.html";
     });
 
+    $('.img-header-set').on('click', function () {
+      location.href = "settings.html";
+      $(this).css({'transform': 'rotate(180deg)'});
+    });
+
+    $('.btn-calendar').on('click', function () {
+      var currentDate = selectedDate;
+      updateDateInputs(todayDateInput, currentDate);
+    
+      // Следующий день
+      var tomorrowDate = new Date(currentDate);
+      tomorrowDate.setDate(currentDate.getDate() + 1);
+      updateDateInputs(tomorrowDateInput, tomorrowDate);
+    });
+
+    $('.timetable-btn').on('click', function () {
+        var image = $(this).find('img');
+
+        // Меняем атрибут src на новый путь к изображению
+        image.attr('src', 'images/note2.svg');
+        $(this).addClass('active-timetable-btn');
+        location.href = "timetable.html";
+    });
+
+    var todayDateInput, tomorrowDateInput, selectedDate;
+    var todayDateInput = $("#today-date-timetable");
+    var tomorrowDateInput = $("#tomorrow-date-timetable");
+    function updateDateInputs(inputElement, date) {
+      // Получаем месяц (возвращает число от 0 до 11)
+      var month = date.getMonth();
+      var dayOfMonth = date.getDate();
+      // Получаем день недели (возвращает число от 0 до 6)
+      var dayOfWeek = date.getDay();
+    
+      // Преобразуем числа в текстовые значения
+      var monthNames = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+      var dayOfWeekNames = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    
+      var monthName = monthNames[month];
+      var dayOfWeekName = dayOfWeekNames[dayOfWeek];
+    
+      // Обновляем значения элементов
+      (inputElement).val(dayOfWeekName + ', ' + dayOfMonth + ' ' + monthName);
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
@@ -35,6 +79,17 @@ const swiper = new Swiper('.swiper', {
           center: 'title',
           end: 'next'
         },
+
+        datesSet: function (info) {
+          var currentDate = calendar.getDate();
+          updateDateInputs(todayDateInput, currentDate);
+    
+          // Следующий день
+          var tomorrowDate = new Date(currentDate);
+          tomorrowDate.setDate(currentDate.getDate() + 1);
+          updateDateInputs(tomorrowDateInput, tomorrowDate);
+        },
+
         dateClick: function (info) {
           var prevSelectedDay = document.querySelector('.selected-day');
           if (prevSelectedDay) {
@@ -42,13 +97,8 @@ const swiper = new Swiper('.swiper', {
           }
           info.dayEl.classList.add('selected-day');
           
-          var selectedDate = info.date;
-          var year = selectedDate.getFullYear();
-          var month = selectedDate.getMonth() + 1; // Месяцы в JavaScript начинаются с 0
-          var day = selectedDate.getDate();
-          var formattedDate = year + '-' + month + '-' + day;
+          selectedDate = info.date;
 
-          console.log('Выбранная дата:', formattedDate);
       }
       });
       calendar.render();

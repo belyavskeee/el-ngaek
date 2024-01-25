@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Мой аккаунт</title>
+	<title>Расписание</title>
 	<link rel="stylesheet" href="css/aos.css">
 	<link rel="stylesheet" href="css/swiper-bundle.min.css">
 	<link rel="stylesheet" href="css/style.css">
@@ -26,8 +26,8 @@
 				<p>Электронный журнал</p>
 			</div>
 			<div class="header-tools">
-				<div class="timetable-btn">
-					<img src="images/note.svg" alt="Блокнот">
+				<div class="timetable-btn active-timetable-btn">
+					<img src="images/note2.svg" alt="Блокнот">
 				</div>
 				<div class="timetable-edit-btn">
 					<img src="images/pencil.svg" alt="Кисточка">
@@ -41,7 +41,7 @@
 				<h3>Зотеева Дарья Евгеньевна</h3>
 				<div class="timetable">
 					<div class="block-timetable">
-						<input class="day-of-week-timetbl" type="button" value="Понедельник, 1 сентября" disabled>
+						<input id="today-date-timetable" class="day-of-week-timetbl" type="button" value="Понедельник, 1 сентября" disabled>
 						<div class="block-timetable-subject">
 							<div class="block-timetable-subject-inform">
 								<p>9:00 - 10:35
@@ -82,7 +82,7 @@
 						</div>
 					</div>
 					<div class="block-timetable block-timetable-second">
-						<input class="day-of-week-timetbl" type="button" value="Вторник, 2 сентября" disabled>
+						<input id="tomorrow-date-timetable" class="day-of-week-timetbl" type="button" value="Вторник, 2 сентября" disabled>
 						<div class="block-timetable-subject">
 							<div class="block-timetable-subject-inform">
 								<p>9:00 - 10:35
