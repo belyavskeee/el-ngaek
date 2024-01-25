@@ -825,6 +825,10 @@ html, body {
 	.form-button-reg {
 		margin-top: 10px;
 	}
+	
+	.item-settings-list {
+		margin: 10px 0;
+	}
 
 }
 
