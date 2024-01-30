@@ -219,16 +219,18 @@ input:-webkit-autofill:active {
 	text-align: center;
 	justify-content: center;
 }
-.form-input label a{
+.form-input a{
 	color: #4E6384;
-	font-weight: bold;
+	display: block;
+	text-align: justify;
+	/* font-weight: bold; */
 	font-size: 12px;
 	text-decoration: none;
 	font-family: 'rubick-light', Georgia, serif;
 	-webkit-transition-duration: 0.3s; /* Safari */
 	transition-duration: 0.3s;
 }
-.form-input label a:hover{
+.form-input a:hover{
 	color: #a3abbb;
 }
 
@@ -840,8 +842,13 @@ html, body {
 /* 5. media 1280px */
 @media all and (max-width: 1280px) {
 	.auth-block {
+		padding: 0 80px;
+	}
+
+	.main-block {
 		padding: 0 20px;
 	}
+
 	.main-block-journal {
 		padding: 20px 40px;
 	}
@@ -877,8 +884,11 @@ html, body {
 /* 5. media 900px */
 @media all and (max-width: 900px) {
 	.auth-block {
-		width: 85%;
+		width: 60%;
+		padding: 0 40px 5px 40px;
+		min-height: fit-content;
 	}
+	
 	.block-registration img {
 		height: 250px;
 		width: 250px;
@@ -1055,7 +1065,12 @@ html, body {
 		min-width: 200px;
 		margin-bottom: 40px;
 	}
-	
+	.list-settings {
+		padding-top: 10px;
+	}
+	.item-settings-list {
+		border-radius: 40px;
+	}
 }
 
 /* 6. media height 700px */
