@@ -2,7 +2,7 @@
 1. header
 2. main
 3. footer
-4. helpers#c1cfe4
+4. helpers
 5. media 1280px
 */
 
@@ -175,7 +175,7 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: initial !important;
 }
 
-.form-input, .buttons input {
+.form-input input, .buttons input, .button-defualt {
 	cursor: pointer;
 	background-color: #c5d2e2;
 	border: none;
@@ -189,21 +189,64 @@ input:-webkit-autofill:active {
 	-webkit-transition-duration: 0.3s; /* Safari */
   	transition-duration: 0.3s;
 }
-.form-input:focus, .buttons input:focus {
+.form-input input[type="checkbox"], .custom-checkbox {
+	/* Задаем кастомный вид для чекбокса */
+	appearance: none; /* Отключаем стандартный вид браузера */
+	padding: 0;
+	margin: 10px 0 -5px 10px;
+	border-radius: 50px;
+	width: 22px; /* Ширина чекбокса */
+	height: 22px; /* Высота чекбокса */
+	background-color: #c5d2e2; /* Цвет фона чекбокса */
+	cursor: pointer; /* Изменяем курсор при наведении */
+}
+.form-input input[type="checkbox"]:checked, .custom-checkbox:checked  {
+	outline: none;
+	box-shadow: inset 0 0 0 4px #617492 !important;
+}
+.form-input input[type="checkbox"]:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.form-input label{
+	color: #4E6384;
+	margin: 0 auto;
+	width: -webkit-fill-available;
+	font-size: 12px;
+	font-family: 'rubick-light', Georgia, serif;
+	font-weight: lighter;
+	text-align: center;
+	justify-content: center;
+}
+.form-input label a{
+	color: #4E6384;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration: none;
+	font-family: 'rubick-light', Georgia, serif;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.form-input label a:hover{
+	color: #a3abbb;
+}
+
+.form-input input:focus, .buttons input:focus {
 	outline: none;
 	box-shadow: inset 0 0 0 3px #617492;
 }
-.form-input::placeholder, .buttons input::placeholder{
+.form-input input::placeholder, .buttons input::placeholder{
 	color: #617492;
 }
 
-.form-button-go {
+.form-input .form-button-go {
 	margin-top: 20px;
 	background-color: #4f6384;
 	color: #ffffff;
 	width: 99%;
 }
-.form-button-reg {
+.form-input .form-button-reg {
 	margin-top: 10px;
 	background-color: #ffffff;
 	width: 99%;
@@ -622,7 +665,6 @@ footer p{
 
 /* 4. helpers */
 html, body {
-	height: 100%;
 	min-width: 100%;
 	margin: 0;
 	background-color: #dbe6f4;
@@ -813,7 +855,7 @@ html, body {
 		margin-top: 20px;
 	}
 	
-	.form-input {
+	.form-input input{
 		padding: 13px 25px;
 		margin-top: 5px;
 		font-size: 15px;
@@ -847,7 +889,7 @@ html, body {
 		max-width: 200px;
 	}
 	
-	.form-input {
+	.form-input input{
 		padding: 11px 20px;
 		margin-top: 5px;
 		font-size: 14px;
@@ -924,7 +966,7 @@ html, body {
 		min-width: 90%;
 	}
 	
-	.form-input {
+	.form-input input{
 		padding: 17px 38px;
 		margin-top: 5px;
 		font-size: 15px;

@@ -24,19 +24,24 @@
 					<div class="swiper">
 						<div class="image-slider__wrapper swiper-wrapper">
 							<div class="swiper-slide">
-								<form class="auth-slide">
-									<input class="form-input" type="text" name="login" placeholder="Логин"><br>
-									<input class="form-input" type="password" name="password" placeholder="Пароль"><br>
-									<input class="form-input form-button-go" type="button" value="Войти"><br>
-									<input class="form-input form-button-reg btn-next" type="button" value="Регистрация">
+								<form class="form-input auth-slide">
+									<input type="text" name="login" placeholder="Логин"><br>
+									<input  type="password" name="password" placeholder="Пароль"><br>
+									<input class=" form-button-go" type="button" value="Войти"><br>
+									<input class=" form-button-reg btn-next" type="button" value="Регистрация">
 									<a href="#" class="a-href">Забыли пароль?</a>
 								</form>
 							</div>
 							<div class="swiper-slide">
-								<form>
-									<input class="form-input" type="text" name="login" placeholder="Введите код"><br>
-									<input class="form-input form-button-go" type="button" value="Регистрация"><br>
-									<input class="form-input form-button-reg btn-prev" type="button" value="У меня есть аккаунт">
+								<form class="form-input">
+									<input type="text" name="login" placeholder="Введите код" required><br>
+									<div style="margin: 0 10px;">
+										<input class="custom-checkbox" type="checkbox" name="chekbox-if" id="chekbox-if" required>
+										<label for="checkbox-if">Согласен со всеми условиями <a href="">Пользовательского соглашения</a> и <a href="">Политики конфидециальности</a></label>
+									</div>
+									
+									<input class="form-button-go" type="button" value="Регистрация"><br>
+									<input class="form-button-reg btn-prev" type="button" value="У меня есть аккаунт">
 								</form>
 							</div>
 						</div>
