@@ -106,6 +106,33 @@ const swiper = new Swiper('.swiper', {
     });
   }
 
+  //обработка файлов для страницы отправки ошибок
+  const customFileUpload = document.getElementById('customFileUpload');
+
+  customFileUpload.addEventListener('dragover', function (e) {
+      e.preventDefault();
+      this.classList.add('drag-over');
+  });
+  
+  customFileUpload.addEventListener('dragleave', function () {
+      this.classList.remove('drag-over');
+  });
+  
+  customFileUpload.addEventListener('drop', function (e) {
+      e.preventDefault();
+      this.classList.remove('drag-over');
+      const files = e.dataTransfer.files;
+      const fileInput = document.getElementById('fileToUpload');
+      fileInput.files = files;
+  });
+  
+  function updateLabel(input) {
+      // Ваша логика для обновления метки
+  }
+  
+  
+
+
   // Проверяем, находимся ли мы на нужной странице
   if (document.body.classList.contains('calendar-page')) {
     initializeCalendar();

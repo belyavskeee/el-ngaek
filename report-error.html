@@ -37,24 +37,33 @@
     </header>
 
 	
-	<main style="display: flex;">
-        <div class="arrow-back-error-page">
-            <img src="images/arrow-big.svg" alt="Стрелка">
-        </div>
-		<div class="auth-block main-block block-report" style="overflow: hidden;">
-            <div class="error-report-block" data-aos="fade-right">
-                <div>
-                    <textarea style="margin: 0 auto;" class="textarea-default" name="description" id="" cols="40" rows="7" placeholder="Опишите вашу проблему"></textarea>
-                </div>
-                <div class="input-screenshots-report">
-
-                </div>
-                <div style="margin: 0 auto;">
-                    <input class="custom-checkbox" type="checkbox" name="checkbox-allow-report" id="checkbox-allow-report">
-                    <label class="label-default" for="checkbox-allow-report">Предоставить доступ к системной информации</label>
-                </div>
-                <button class="button-defualt btn-default-dark">Отправить</button>
-            </div>
+	<main class="inline-block">
+		<div style="height: fit-content;
+		
+		display: flex;" >
+			<div class="arrow-back-error-page">
+				<img src="images/arrow-big.svg" alt="Стрелка">
+			</div>
+			<div class="auth-block main-block block-report" style="overflow: hidden;">
+				<div class="error-report-block" data-aos="fade-right">
+					<div>
+						<textarea style="margin: 0 auto;" class="textarea-default" name="description" id="" cols="40" rows="7" placeholder="Опишите вашу проблему"></textarea>
+					</div>
+					<div class="input-screenshots-report">
+						<label id="customFileUpload" for="fileToUpload" class="custom-file-upload">
+							<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*" onchange="updateLabel(this)">
+							Перетащите или загрузите любые файлы,<br> 
+							которые помогут решить проблему.
+						</label>
+					</div>
+					<div style="margin: 0 auto;">
+						<input class="custom-checkbox" type="checkbox" name="checkbox-allow-report" id="myCheckbox">
+						<label for="myCheckbox" class="label-default">Предоставить доступ к системной информации</label>
+					</div>										
+					<button class="button-defualt btn-default-dark">Отправить</button>
+				</div>
+			</div>
+			<div class="helper-block-report"></div>
 		</div>
 	</main>
 

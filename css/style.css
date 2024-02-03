@@ -7,7 +7,7 @@
 */
 
 /* 1. header */
-header {
+header, .inline-block {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -189,37 +189,110 @@ input:-webkit-autofill:active {
 	-webkit-transition-duration: 0.3s; /* Safari */
   	transition-duration: 0.3s;
 }
-.form-input input[type="checkbox"], .custom-checkbox {
+.form-input input[type="checkbox"] {
 	/* Задаем кастомный вид для чекбокса */
 	appearance: none; /* Отключаем стандартный вид браузера */
+	vertical-align: bottom; 
 	padding: 0;
 	margin: 10px 0 -5px 10px;
 	border-radius: 50px;
-	width: 22px; /* Ширина чекбокса */
-	height: 22px; /* Высота чекбокса */
+	width: 25px; /* Ширина чекбокса */
+	height: 25px; /* Высота чекбокса */
 	background-color: #c5d2e2; /* Цвет фона чекбокса */
 	cursor: pointer; /* Изменяем курсор при наведении */
 	-webkit-transition-duration: 0.3s; /* Safari */
   	transition-duration: 0.3s;
 }
-.form-input input[type="checkbox"]:checked, .custom-checkbox:checked  {
+.form-input input[type="checkbox"]:checked  {
 	outline: none;
-	box-shadow: inset 0 0 0 4px #617492 !important;
-}
+	/* box-shadow: inset 0 0 0 4px #617492 !important;*/
+} 
+
+
 .form-input input[type="checkbox"]:focus {
 	outline: none;
 	box-shadow: none;
 }
 
+.custom-checkbox:checked, 
+.custom-checkbox:not(:checked) 
+{
+    position: absolute;
+    left: -9999px;
+}
+
+.custom-checkbox:checked + label, 
+.custom-checkbox:not(:checked) + label {
+    display: inline-block;
+    position: relative;
+    line-height: 20px;
+	padding-left: 30px;
+	margin: 0 auto;
+    cursor: pointer;
+}
+
+.custom-checkbox:checked + label:before, 
+.custom-checkbox:not(:checked) + label:before {
+    content: "";
+    position: absolute;
+	margin-top: -2px;
+    left: 0px;
+    top: 0px;
+    width: 25px; /* Ширина чекбокса */
+	height: 25px; /* Высота чекбокса */
+	background-color: #c5d2e2; /* Цвет фона чекбокса */
+	cursor: pointer; /* Изменяем курсор при наведении */
+}
+
+.custom-checkbox:checked + label:before, 
+.custom-checkbox:not(:checked) + label:before {
+    border-radius: 30px;
+}
+
+.custom-checkbox:checked + label:after, 
+.custom-checkbox:not(:checked) + label:after {
+    content: "";
+    position: absolute;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.custom-checkbox:checked + label:after, 
+.custom-checkbox:not(:checked) + label:after {
+    left: 3px;
+    top: 4px;
+    width: 15px;
+    height: 5px;
+    border-radius: 1px;
+    border-left: 4px solid #617492;
+    border-bottom: 4px solid #617492;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+
+.custom-checkbox:not(:checked) + label:after {
+    opacity: 0;
+}
+
+.custom-checkbox:checked + label:after {
+    opacity: 1;
+}
+
+
 .form-input label, .label-default {
 	color: #4E6384;
-	margin: 0 auto;
-	width: -webkit-fill-available;
 	font-size: 12px;
 	font-family: 'rubick-light', Georgia, serif;
 	font-weight: lighter;
 	text-align: center;
 	justify-content: center;
+	user-select: none;
 }
 .form-input a{
 	color: #4E6384;
@@ -631,15 +704,16 @@ input:-webkit-autofill:active {
 }
 
 .arrow-back-error-page{
-	margin: auto 0;
+	margin: auto 20px auto 0;
 	padding: 70px 20px;
 	background-color: #E8EFF9;
 	-webkit-transition-duration: 0.3s; /* Safari */
 	transition-duration: 0.3s;
 	cursor: pointer;
 	border-radius: 80px;
-	position: absolute;
-	left: auto;
+	/* position: absolute; */
+	display: flex;
+	float: left;
 }
 .arrow-back-error-page:hover{
 	background-color:#c5d2e2;
@@ -653,7 +727,8 @@ input:-webkit-autofill:active {
 	position: relative;
   	left: auto;
 	width: fit-content;
-	padding: 20px 40px;
+	padding: 20px 20px !important;
+	margin-top: 0px !important;
 }
 
 .error-report-block{
@@ -670,6 +745,7 @@ input:-webkit-autofill:active {
 	color: #4f6384;
 	font-family: 'rubick-regular', Georgia, serif;
 	resize: none;
+	font-size: 12px;
 	border-radius: 35px;
 	-webkit-transition-duration: 0.3s; /* Safari */
 	transition-duration: 0.3s;
@@ -681,11 +757,76 @@ input:-webkit-autofill:active {
 }
 .textarea-default::placeholder {
 	position: absolute;
+	color: #4f6384;
 	top: 50%;
 	left: 0;
 	transform: translateY(-50%);
 	width: 100%; /* Установите ширину на 100% */
 	text-align: center; /* Выравнивание по центру по горизонтали */
+}
+
+.input-screenshots-report{
+	margin: 20px 0 10px 0;
+}
+
+.inner-box {
+	width: calc(100% - 20px); /* Уменьшаем ширину на величину внутренней тени */
+	height: calc(100% - 20px); /* Уменьшаем высоту на величину внутренней тени */
+	position: absolute; /* Позиционируем внутренний блок относительно родительского */
+	top: 10px; /* Отступ от верхнего края */
+	left: 10px; /* Отступ от левого края */
+	background-image: radial-gradient(circle at 2px 2px, rgba(0, 0, 0, 0) 4px, #000 5px); /* Пунктирная тень */
+  }
+
+  .custom-file-upload {
+    display: inline-block;
+    padding: 100px 100px;
+    background-color: #DBE6F4;
+    border-radius: 35px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #4f6384;
+    font-family: 'rubick-regular', Georgia, serif;
+    resize: none;
+    position: relative;
+    overflow: hidden;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+
+.custom-file-upload:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 35px; /* Закругленные углы */
+    border-style: dotted; /* Стиль пунктира */
+    border-width: 4px; /* Увеличенная толщина пунктира */
+    border-color: #4f6384; /* Цвет пунктира */
+    pointer-events: none;
+    margin: 3px; /* Расстояние от границы до точек */
+    box-sizing: border-box; /* Учитываем padding внутри размеров элемента */
+    border-spacing: 15px; /* Расстояние между точками */
+}
+.custom-file-upload label {
+	position: absolute;
+	top: 50%;
+}
+.drag-over {
+    background-color: #c5d2e2; /* Новый цвет фона при перетаскивании */
+}
+
+#fileToUpload {
+    display: none; /* Скрыть стандартный input */
+}
+
+.helper-block-report {
+	width: 80px; 
+	height: 200px; 
+	display: flex;
+	float: right;
 }
 
 
@@ -1012,6 +1153,14 @@ html, body {
 	.journal {
 		width: 400px;
 	}
+
+	.arrow-back-error-page {
+		display: none;
+	}
+
+	.helper-block-report {
+		display: none;
+	}
 }
 
 /* 5. media 480px */
@@ -1129,6 +1278,13 @@ html, body {
 	}
 	.item-settings-list {
 		border-radius: 40px;
+	}
+	.textarea-default {
+		width: 70%;
+	}
+	.custom-file-upload {
+		padding: 70px 0;
+		width: 95%;
 	}
 }
 
