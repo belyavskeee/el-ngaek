@@ -106,28 +106,31 @@ const swiper = new Swiper('.swiper', {
     });
   }
 
-  //обработка файлов для страницы отправки ошибок
   const customFileUpload = document.getElementById('customFileUpload');
+  if (customFileUpload) {
+    //обработка файлов для страницы отправки ошибок
+    
 
-  customFileUpload.addEventListener('dragover', function (e) {
-      e.preventDefault();
-      this.classList.add('drag-over');
-  });
-  
-  customFileUpload.addEventListener('dragleave', function () {
-      this.classList.remove('drag-over');
-  });
-  
-  customFileUpload.addEventListener('drop', function (e) {
-      e.preventDefault();
-      this.classList.remove('drag-over');
-      const files = e.dataTransfer.files;
-      const fileInput = document.getElementById('fileToUpload');
-      fileInput.files = files;
-  });
-  
-  function updateLabel(input) {
-      // Ваша логика для обновления метки
+    customFileUpload.addEventListener('dragover', function (e) {
+        e.preventDefault();
+        this.classList.add('drag-over');
+    });
+    
+    customFileUpload.addEventListener('dragleave', function () {
+        this.classList.remove('drag-over');
+    });
+    
+    customFileUpload.addEventListener('drop', function (e) {
+        e.preventDefault();
+        this.classList.remove('drag-over');
+        const files = e.dataTransfer.files;
+        const fileInput = document.getElementById('fileToUpload');
+        fileInput.files = files;
+    });
+    
+    function updateLabel(input) {
+        // Ваша логика для обновления метки
+    }
   }
   
   
