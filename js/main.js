@@ -112,27 +112,26 @@ const swiper = new Swiper('.swiper', {
 
 
   const fileInput = document.getElementById('fileToUpload');
-  const customFileUpload = document.getElementById('customFileUpload'); // Добавляем это
+  const customFileUpload = document.getElementById('customFileUpload');
   
-  if (fileInput && customFileUpload) { // Проверяем обе переменные
-  
+  if (fileInput && customFileUpload) {
     customFileUpload.addEventListener('dragover', function (e) {
       e.preventDefault();
       this.classList.add('drag-over');
     });
-    
+  
     customFileUpload.addEventListener('dragleave', function () {
-        this.classList.remove('drag-over');
+      this.classList.remove('drag-over');
     });
-    
+  
     customFileUpload.addEventListener('drop', function (e) {
-        e.preventDefault();
-        this.classList.remove('drag-over');
-        const files = e.dataTransfer.files;
-        const fileInput = document.getElementById('fileToUpload');
-        fileInput.files = files;
-        applyStyles();
-        handleFiles(files);
+      e.preventDefault();
+      this.classList.remove('drag-over');
+      const files = e.dataTransfer.files;
+      const fileInput = document.getElementById('fileToUpload');
+      fileInput.files = files;
+      applyStyles();
+      handleFiles(files);
     });
   
     customFileUpload.addEventListener('change', function(e) {
@@ -140,40 +139,63 @@ const swiper = new Swiper('.swiper', {
       const files = e.target.files;
       applyStyles();
       handleFiles(files);
-  
     });
   }
-
+  
   // Функция для применения стилей
   function applyStyles() {
-    $('.custom-file-upload').css({
-        'padding': '20px 0',
-        'width': '100%'
-    });
-    $('.custom-file-upload:before').css({
-        'border-style': 'solid',
-        'background-color': 'red'
-    });
-    $('.custom-file-upload').text('Добавить еще файлы');
+    if (!$('.custom-file-upload').hasClass('custom-file-upload-smaller')) {
+      $('.custom-file-upload').addClass('custom-file-upload-smaller');
+    $('.custom-file-upload').html('<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">Добавить еще файлы');
+    }
   }
   
   // Функция для обработки выбранных файлов
-  function handleFiles(files) {
-        if (files.length > 5) {
-          alert("Выберите не более 5 файлов");
-          return;
-      }
+  var allFiles = [];
+
+// Функция для обработки выбранных файлов
+function handleFiles(files) {
+    // Преобразование files в массив, если он еще не является таковым
+    files = Array.from(files);
+    // Проверяем общее количество файлов
+    if (allFiles.length + files.length > 5) {
+      $('.custom-file-upload').html('<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">Общее число файлов достигнуто максимума');
       
-      // В примере ниже просто выводим имена выбранных файлов в консоль
-      fileInput.files = files;
-      for (let i = 0; i < files.length; i++) {
-        // Создаем новый блок
-        var newItem = $('<div class="item-screenshot"><a href="uploads-errors/' + files[i].name + '" target="_blank"><img src="images/dock-image.svg" alt="Скриншот"></a><p>' + files[i].name + '</p></div>');
-        newItem.attr('id', files[i].name);
-        $('.lits-with-screenshots').append(newItem);
-      }
-  }
+      return;
+    }
+
+    allFiles.push(...files);
+
+    files.forEach(function(file) {
+      var newItem = $('<div class="item-screenshot" style="animation: fadeIn 0.5s ease-in-out;"><a href="uploads-errors/' + file.name + '" target="_blank"><img src="images/dock-image.svg" alt="Скриншот"></a><p>' + file.name + '</p></div>');
+      newItem.attr('id', file.name);
+      $('.lits-with-screenshots').append(newItem);
+  });
+}
   
+
+const textarea = document.getElementById("myTextarea");
+const charCount = document.getElementById("charCount");
+
+if (textarea && charCount) {
+  // Устанавливаем максимальное количество символов
+  const maxChars = 400;
+
+  // Слушаем событие ввода в textarea
+  textarea.addEventListener("input", function() {
+    // Получаем количество оставшихся символов
+    const remainingChars = maxChars - textarea.value.length;
+    
+    // Обновляем текст в счетчике символов
+    charCount.textContent = remainingChars;
+    
+    // Ограничиваем количество введенных символов
+    if (remainingChars < 0) {
+      textarea.value = textarea.value.slice(0, maxChars);
+      charCount.textContent = 0;
+    }
+  });
+}
 
 
   // Проверяем, находимся ли мы на нужной странице

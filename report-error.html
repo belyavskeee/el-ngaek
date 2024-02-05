@@ -47,7 +47,8 @@
 			<div class="auth-block main-block block-report" style="overflow: hidden;">
 				<div class="error-report-block" data-aos="fade-right">
 					<div>
-						<textarea style="margin: 0 auto;" class="textarea-default" name="description" id="" cols="40" rows="7" placeholder="Опишите вашу проблему"></textarea>
+						<textarea style="margin: 0 auto;" class="textarea-default" name="description" id="myTextarea" cols="40" rows="9" placeholder="Опишите вашу проблему" maxlength="450"></textarea>
+						<div class="counter"><span id="charCount">400</span>/400</div>
 					</div>
 					<div class="input-screenshots-report">
 						<label id="customFileUpload" for="fileToUpload" class="custom-file-upload">
@@ -57,10 +58,7 @@
 						</label>
 					</div>
 					<div class="lits-with-screenshots">
-						<div class="item-screenshot">
-							<img src="images/dock-image.svg" alt="Скриншот">
-							<p>Какой-то скрин</p>
-						</div>
+						
 					</div>
 					<div style="margin: 0 auto;">
 						<input class="custom-checkbox" type="checkbox" name="checkbox-allow-report" id="myCheckbox">

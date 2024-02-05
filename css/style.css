@@ -736,6 +736,7 @@ input:-webkit-autofill:active {
 }
 
 .textarea-default {
+	overflow: hidden;
 	display: block;
 	cursor: pointer;
 	padding: 20px;
@@ -747,6 +748,7 @@ input:-webkit-autofill:active {
 	resize: none;
 	font-size: 12px;
 	border-radius: 35px;
+	overflow-y: -50px; /* Отодвигает скроллбар вправо на 50px */
 	-webkit-transition-duration: 0.3s; /* Safari */
 	transition-duration: 0.3s;
 	position: relative; /* Добавьте относительное позиционирование */
@@ -763,6 +765,15 @@ input:-webkit-autofill:active {
 	transform: translateY(-50%);
 	width: 100%; /* Установите ширину на 100% */
 	text-align: center; /* Выравнивание по центру по горизонтали */
+}
+.counter {
+	color: #4f6384;
+	font-family: 'rubick-regular', Georgia, serif;
+	resize: none;
+	font-size: 10px;
+	position: absolute;
+	right: 90px;
+	top: 145px;
 }
 
 .input-screenshots-report{
@@ -814,6 +825,17 @@ input:-webkit-autofill:active {
 	position: absolute;
 	top: 50%;
 }
+
+.custom-file-upload-smaller {
+	padding: 20px 0;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .drag-over {
     background-color: #c5d2e2; /* Новый цвет фона при перетаскивании */
 }
@@ -855,6 +877,7 @@ input:-webkit-autofill:active {
 }
 .item-screenshot p {
 	vertical-align: middle;
+	margin-right: 10px;
 }
 
 
