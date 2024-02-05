@@ -23,6 +23,10 @@ const swiper = new Swiper('.swiper', {
       location.href = "detail-subject.html";
     });
 
+    $('.arrow-back-error-page').on('click', function () {
+      parent.history.back(); return false;
+    });
+
     $('.img-header-set').on('click', function () {
       location.href = "settings.html";
       $(this).css({'transform': 'rotate(180deg)'});
@@ -106,14 +110,15 @@ const swiper = new Swiper('.swiper', {
     });
   }
 
-  const customFileUpload = document.getElementById('customFileUpload');
-  if (customFileUpload) {
-    //обработка файлов для страницы отправки ошибок
-    
 
+  const fileInput = document.getElementById('fileToUpload');
+  const customFileUpload = document.getElementById('customFileUpload'); // Добавляем это
+  
+  if (fileInput && customFileUpload) { // Проверяем обе переменные
+  
     customFileUpload.addEventListener('dragover', function (e) {
-        e.preventDefault();
-        this.classList.add('drag-over');
+      e.preventDefault();
+      this.classList.add('drag-over');
     });
     
     customFileUpload.addEventListener('dragleave', function () {
@@ -126,13 +131,48 @@ const swiper = new Swiper('.swiper', {
         const files = e.dataTransfer.files;
         const fileInput = document.getElementById('fileToUpload');
         fileInput.files = files;
+        applyStyles();
+        handleFiles(files);
     });
-    
-    function updateLabel(input) {
-        // Ваша логика для обновления метки
-    }
+  
+    customFileUpload.addEventListener('change', function(e) {
+      // Получаем список выбранных файлов
+      const files = e.target.files;
+      applyStyles();
+      handleFiles(files);
+  
+    });
+  }
+
+  // Функция для применения стилей
+  function applyStyles() {
+    $('.custom-file-upload').css({
+        'padding': '20px 0',
+        'width': '100%'
+    });
+    $('.custom-file-upload:before').css({
+        'border-style': 'solid',
+        'background-color': 'red'
+    });
+    $('.custom-file-upload').text('Добавить еще файлы');
   }
   
+  // Функция для обработки выбранных файлов
+  function handleFiles(files) {
+        if (files.length > 5) {
+          alert("Выберите не более 5 файлов");
+          return;
+      }
+      
+      // В примере ниже просто выводим имена выбранных файлов в консоль
+      fileInput.files = files;
+      for (let i = 0; i < files.length; i++) {
+        // Создаем новый блок
+        var newItem = $('<div class="item-screenshot"><a href="uploads-errors/' + files[i].name + '" target="_blank"><img src="images/dock-image.svg" alt="Скриншот"></a><p>' + files[i].name + '</p></div>');
+        newItem.attr('id', files[i].name);
+        $('.lits-with-screenshots').append(newItem);
+      }
+  }
   
 
 

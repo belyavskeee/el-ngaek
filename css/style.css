@@ -707,13 +707,13 @@ input:-webkit-autofill:active {
 	margin: auto 20px auto 0;
 	padding: 70px 20px;
 	background-color: #E8EFF9;
-	-webkit-transition-duration: 0.3s; /* Safari */
-	transition-duration: 0.3s;
 	cursor: pointer;
 	border-radius: 80px;
 	/* position: absolute; */
 	display: flex;
 	float: left;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
 }
 .arrow-back-error-page:hover{
 	background-color:#c5d2e2;
@@ -827,6 +827,34 @@ input:-webkit-autofill:active {
 	height: 200px; 
 	display: flex;
 	float: right;
+}
+
+.item-screenshot {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	background-color: #DBE6F4;
+	padding: 10px 0;
+	border-radius: 30px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	color: #4f6384;
+    font-family: 'rubick-regular', Georgia, serif;
+	font-size: 12px;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.item-screenshot:hover {
+	background-color: #c5d2e2;
+}
+.item-screenshot img {
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	margin: 0 7px 0 25px;
+}
+.item-screenshot p {
+	vertical-align: middle;
 }
 
 
