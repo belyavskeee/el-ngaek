@@ -41,27 +41,60 @@
 		<div class="auth-block main-block">
             <div class="block-list-subject">
                 <div class="info-subject">
-                    <div class="name-subject">Обществоведение</div>
+                    <div class="name-subject name-subject-focus">
+						<textarea name="name-subject" id="subject-name-textarea" class="textarea-in-one-line" rows="1" placeholder="Название предмета" disabled>Технология разработки программного обеспечения</textarea>
+					</div>
+					<select name="country" id="group" disabled>
+						<option value="5">гр. 2120</option>
+						<option value="4">гр. 2121</option>
+						<option value="3">гр. 2122</option>
+						<option value="2">гр. 2123</option>
+						<option value="1">гр. 1121</option>
+					</select>
+					<div>ПОИТ</div>
                     <div>1 курс</div>
-                    <div>гр. 2120</div>
                 </div>
                 <div class="inner-shadow">
-                    <div class="list-subject form-input">
-                        <input  type="button" value='1.08 Лекция "Человек и общество в современных реалиях"'>
-                        <input  type="button" value='2.08 Лекция "Нравственность и культура молодёжи"'>
-                        <input  type="button" value='3.08 Лекция "Строение правовой системы и законы"'>
-                        <input  type="button" value='4.08 Лекция "Качества человека как личности"'>
-                        <input  type="button" value='5.08 Тест по изученному материалу'>
-                        <input  type="button" value='6.08 Лекция "Психология в обществе"'>
-                        <input  type="button" value='6.08 Лекция "Психология в обществе"'>
-                        
+					<div class="list-subject">
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
+						<div id="subject-lecture-id">
+							<p>01.09</p>
+							<textarea class="textarea-inner textarea-in-one-line" name="lecture-name" id="lecture-name" rows="1" placeholder="Добавьте тему" disabled></textarea>
+						</div>
                     </div>
                 </div>
             </div>
             <div class="block-graph">
-                <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+                <div style="display: flex; justify-content: flex-end; margin-bottom: 20px; margin-top: 5px;">
                     <img class="block-graph-img" src="images/settings.svg" alt="Настройки">
-                    <div class="hours-subject"><p>12/77 часов</p></div>
+                    <div class="hours-subject"><p><input type="text" name="hours-spent" id="hours-spent" placeholder="ч. проведено" disabled>/<input type="text" name="hours-total" id="hours-total" placeholder="ч. всего" disabled> часов</p></div>
                 </div>
                 <div class="graph">
                     <img src="images/graph.png" alt="График">

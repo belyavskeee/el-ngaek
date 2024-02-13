@@ -3,6 +3,29 @@ const swiper = new Swiper('.swiper', {
     spacebetween: 150,
   });
 
+  AOS.init({
+    // Global settings:
+    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+    initClassName: 'aos-init', // class applied after initialization
+    animatedClassName: 'aos-animate', // class applied on animation
+    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+    
+  
+    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+    offset: 120, // offset (in px) from the original trigger point
+    delay: 0, // values from 0 to 3000, with step 50ms
+    duration: 400, // values from 0 to 3000, with step 50ms
+    easing: 'ease', // default easing for AOS animations
+    once: false, // whether animation should happen only once - while scrolling down
+    mirror: false, // whether elements should animate out while scrolling past them
+    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+  
+  });
+
     $('.btn-next').on('click', function () {
       swiper.slideNext();
     });
@@ -19,9 +42,11 @@ const swiper = new Swiper('.swiper', {
       location.href = "subject.html";
     });
 
-    $('.list-subject input').on('click', function () {
-      location.href = "detail-subject.html";
-    });
+      $('.list-subject div').on('click', function () {
+        if (!$('.block-graph-img').hasClass('active-object')) {
+          location.href = "detail-subject.html";
+        }
+      });
 
     $('.arrow-back-error-page').on('click', function () {
       parent.history.back(); return false;
@@ -31,6 +56,61 @@ const swiper = new Swiper('.swiper', {
       location.href = "settings.html";
       $(this).css({'transform': 'rotate(180deg)'});
     });
+
+    function autoResize(textarea) {
+      // Устанавливаем высоту в начальное значение (1 строка)
+      textarea.style.height = "1px";
+      // Устанавливаем высоту, чтобы вместить весь текст
+      textarea.style.height = (textarea.scrollHeight) + "px";
+    }
+    function autoAdjustWidth(input) {
+      if (input.value.trim()) { // Проверяем, содержит ли инпут текст (используем trim() для удаления пробелов по краям)
+        input.style.width = "8px";
+        input.style.width = (input.scrollWidth) + "px"; // Устанавливаем ширину в зависимости от содержимого
+      }
+    }
+    function adjustTextareaWidth(textarea) {
+      var $textarea = $(textarea);
+      var text = $textarea.val();
+      var textLength = text.length;
+      var placeholderText = $textarea.attr('placeholder');
+      var placeholderLength = placeholderText.length;
+  
+      // Вычисляем ширину текста в пикселях
+      var textWidth = Math.max(textLength, placeholderLength) * 8; // Здесь 8 - примерная ширина символа в пикселях
+  
+      // Устанавливаем ширину textarea
+      $textarea.width(textWidth);
+  }
+
+  function setSizeTextarea(textarea){
+    adjustTextareaWidth(textarea);
+    autoResize(textarea);
+    $(textarea).on("input", function() {
+        adjustTextareaWidth(textarea);
+        autoResize(textarea);
+    });
+  }
+
+  if ($("#subject-name-textarea").length) {
+    setSizeTextarea(document.getElementById("subject-name-textarea"));
+}
+if ($("#lecture-name").length) {
+  setSizeTextarea(document.getElementById("lecture-name"));
+}
+
+if ($("#hours-spent").length) {
+  autoAdjustWidth(document.getElementById("hours-spent"));
+  $("#hours-spent").on("input", function() {
+    autoAdjustWidth(this);
+  });
+}
+if ($("#hours-total").length) {
+  autoAdjustWidth(document.getElementById("hours-total"));
+  $("#hours-total").on("input", function() {
+    autoAdjustWidth(this);
+  });
+}
 
     $('.btn-calendar').on('click', function () {
       var currentDate = selectedDate;
@@ -77,7 +157,7 @@ const swiper = new Swiper('.swiper', {
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        locale: 'ru', // Добавлено свойство для установки локали
+        locale: 'ru',
         firstDay: 1, // Установка начала недели на понедельник
         headerToolbar: {
           start: 'prev', // Удалите 'today', чтобы убрать кнопку "Today"
@@ -173,55 +253,22 @@ function handleFiles(files) {
   });
 }
   
-
-const textarea = document.getElementById("myTextarea");
-const charCount = document.getElementById("charCount");
-
-if (textarea && charCount) {
-  // Устанавливаем максимальное количество символов
-  const maxChars = 400;
-
-  // Слушаем событие ввода в textarea
-  textarea.addEventListener("input", function() {
-    // Получаем количество оставшихся символов
-    const remainingChars = maxChars - textarea.value.length;
-    
-    // Обновляем текст в счетчике символов
-    charCount.textContent = remainingChars;
-    
-    // Ограничиваем количество введенных символов
-    if (remainingChars < 0) {
-      textarea.value = textarea.value.slice(0, maxChars);
-      charCount.textContent = 0;
-    }
-  });
-}
-
-
   // Проверяем, находимся ли мы на нужной странице
   if (document.body.classList.contains('calendar-page')) {
     initializeCalendar();
   }
-    
-  AOS.init({
-    // Global settings:
-    disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-    startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-    initClassName: 'aos-init', // class applied after initialization
-    animatedClassName: 'aos-animate', // class applied on animation
-    useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-    disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-    debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-    throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-    
-  
-    // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-    offset: 120, // offset (in px) from the original trigger point
-    delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 400, // values from 0 to 3000, with step 50ms
-    easing: 'ease', // default easing for AOS animations
-    once: false, // whether animation should happen only once - while scrolling down
-    mirror: false, // whether elements should animate out while scrolling past them
-    anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-  
-  });
+
+  $(document).ready(function() {
+    $('.block-graph-img').click(function() {
+        if ($(this).hasClass('active-object')) {
+            // Удаление класса и установка атрибута disabled
+            $(this).removeClass('active-object');
+            $('.textarea-in-one-line, #group, #hours-spent, #hours-total').attr('disabled', 'disabled');
+        } else {
+            // Добавление класса и удаление атрибута disabled
+            $(this).addClass('active-object');
+            $('.textarea-in-one-line, #group, #hours-spent, #hours-total').removeAttr('disabled');
+        }
+    });
+});
+

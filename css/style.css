@@ -175,7 +175,7 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: initial !important;
 }
 
-.form-input input, .buttons input, .button-defualt {
+.form-input input, .buttons input, .button-defualt, .lecture-btn {
 	cursor: pointer;
 	background-color: #c5d2e2;
 	border: none;
@@ -464,38 +464,112 @@ input:-webkit-autofill:active {
 	font-size: 14px;
 }
 
-
+/* Страница предмета */
 .block-list-subject {
-	padding: 40px;
+	padding: 35px 0px 40px 40px;
 	width: fit-content;
 }
 .info-subject {
 	display: flex;
+	flex-wrap: wrap;
 }
-.info-subject div {
+.info-subject div, select {
+	display: flex;
 	background-color: #dbe6f4;
+	width: fit-content;
 	color: #4f6384;
+	height: 40px;
 	border-radius: 50px;
-	padding: 13px 20px;
+	padding: 0 20px;
+	margin-top: 5px;
 	margin-right: 5px;
 	cursor: default;
 	font-size: 12px;
 	font-family: 'rubick-light', Georgia, serif;
+	align-items: center; /* Выравнивание по вертикали */
+  	justify-content: center; /* Выравнивание по горизонтали */
+	-webkit-appearance: none; /* Для WebKit (Chrome, Safari, Opera) */
+	-moz-appearance: none; /* Для Firefox */
+	appearance: none; /* Стандартное свойство */
+	outline: none;
+	border-color: transparent;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+
+.info-subject select:disabled {
+	opacity: 1;
+	border-color: transparent;
+}
+
+.info-subject select:focus {
+	box-shadow: inset 0 0 0 3px #617492;
+}
+
+.info-subject .name-subject {
+	padding: 0 5px;
+	background-color: #4f6384;
+	color: #dbe6f4;
+	max-width: 250px;
+	width: fit-content !important;
+	text-align: center;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+
+.focus-for-objects {
+	box-shadow: inset 0 0 0 3px #617492;
+}
+.active-object {
+	box-shadow: inset 0 0 0 3px #617492;
+}
+
+.info-subject .name-subject textarea, .textarea-inner {
+    background-color: transparent;
+    border: none !important;
+    padding: 0 10px;
+    height: fit-content;
+    resize: none;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-family: 'rubick-light', Georgia, serif;
+    outline: none;
+	overflow: hidden;
+}
+
+.info-subject .name-subject textarea::placeholder {
+	color: white;
+	font-size: 12px;
+}
+
+.info-subject input {
+	background-color: transparent;
+	margin-right: 3px;
+	width: 1ch;
+	border: none !important;
+	padding: 0;
+	height: fit-content;
+	resize: none;
+	text-align: center;
+	color: #4f6384;
+	font-size: 12px;
+	font-family: 'rubick-light', Georgia, serif;
+	outline: none;
+}
+.info-subject #subject-group_id-input {
+	width: 4ch;
+	margin: 0 0 0 1px;
+}
+
+.info-subject p {
+	margin: 0;
 }
 
 .inner-shadow {
 	position: relative;
   	overflow: hidden;
-  }
-
-.list-subject {
-	margin-top: 20px;
-	padding-right: 5px;
-  	height: 330px;
-  	overflow: auto;
-	z-index: 2;
-  }
-
+}
 .inner-shadow::before {
 	content: "";
   	position: absolute;
@@ -505,27 +579,56 @@ input:-webkit-autofill:active {
   	height: 30px;
   	background: linear-gradient(to bottom, transparent 0%, #e8eff9 100%);
 }
-.info-subject .name-subject {
-	background-color: #4f6384;
-	color: #dbe6f4;
-	max-width: 200px;
-	padding: 13px 30px;
-	text-align: center;
+
+.list-subject {
+	margin-top: 20px;
+	padding-right: 5px;
+  	max-height: 330px;
+	min-height: 75px;
+  	overflow: auto;
+	z-index: 2;
 }
-.list-subject input {
-	padding: 0 25px 0 25px;
+.list-subject div {
+	display: flex;
+	margin-bottom: 5px;
+	padding: 0px 25px;
+	border-radius: 30px;
 	text-align: left;
 	background-color: #dbe6f4;
+	height: 40px;
+	white-space: pre-line;
+	color: #617492;
+	font-size: 15px;
+	font-family: 'rubick-light', Georgia, serif;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+	cursor: pointer;
+	overflow: hidden;
+}
+.list-subject div p,textarea {
 	font-size: 12px;
-	height: 50px;
-	display: block;
+}
+.list-subject div p {
+	margin: auto 5px auto 0;
+}
+.list-subject div textarea {
+	padding: 0;
+	text-align: left;
 	width: 100%;
 	max-width: 400px;
-	white-space: pre-line;
+	margin: auto 0;
+	font-size: 12px;
+	color: #617492;
+}
+.list-subject div textarea::placeholder {
+	color: #617492;
+}
+.list-subject div:hover {
+	background-color:#c2d0e3;
 }
 
 .block-graph {
-	padding: 40px;
+	padding: 35px 40px 40px 40px;
 	width: 400px;
 }
 .block-graph-img {
@@ -535,7 +638,10 @@ input:-webkit-autofill:active {
 	padding: 10px 15px;
 	border-radius: 50px;
 	cursor: pointer;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
 }
+
 .hours-subject {
 	margin-left: 10px;
 	padding: 0 40px;
@@ -547,6 +653,23 @@ input:-webkit-autofill:active {
 	font-size: 12px;
 	font-weight: lighter;
 	font-family: 'rubick-light', Georgia, serif;
+}
+.hours-subject input {
+	background-color: transparent;
+	width: fit-content;
+	max-width: 45px;
+	border: none !important;
+	padding: 0;
+	height: fit-content;
+	resize: none;
+	text-align: center;
+	color: white;
+	font-size: 12px;
+	font-family: 'rubick-light', Georgia, serif;
+	outline: none;
+}
+.hours-subject input::placeholder {
+	color: white;
 }
 
 .graph img {
@@ -1195,6 +1318,7 @@ html, body {
 	}
 	.block-list-subject, .block-graph {
 		margin: auto;
+		padding: 40px 0 40px 0;
 	}
 
 	/* .main-block-journal {
@@ -1300,12 +1424,11 @@ html, body {
 		font-size: 14px;
 	}
 
-	.info-subject {
+	/* .info-subject {
 		display: block;
-	}
+	} */
 	.info-subject div {
 		margin-top: 10px;
-		width: fit-content;
 	}
 	.list-subject, .inner-shadow{
 		width: 100%;
