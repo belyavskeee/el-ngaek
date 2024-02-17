@@ -42,11 +42,11 @@ const swiper = new Swiper('.swiper', {
       location.href = "subject.html";
     });
 
-      $('.list-subject div').on('click', function () {
-        if (!$('.block-graph-img').hasClass('active-object')) {
+    $('.list-subject').on('click', function () {
+      if (!$('.block-graph-img').hasClass('active-object')) {
           location.href = "detail-subject.html";
-        }
-      });
+      }
+    });
 
     $('.arrow-back-error-page').on('click', function () {
       parent.history.back(); return false;
@@ -56,6 +56,14 @@ const swiper = new Swiper('.swiper', {
       location.href = "settings.html";
       $(this).css({'transform': 'rotate(180deg)'});
     });
+
+    $(document).ready(function() {
+      // Получаем ширину родительского блока
+      var parentWidth = $('.journal-btns').width();
+      
+      // Устанавливаем ширину внутреннего блока относительно ширины родительского блока
+      $('.journal').width(parentWidth);
+  });
 
     function autoResize(textarea) {
       // Устанавливаем высоту в начальное значение (1 строка)

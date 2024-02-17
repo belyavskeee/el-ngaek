@@ -468,6 +468,7 @@ input:-webkit-autofill:active {
 .block-list-subject {
 	padding: 35px 0px 40px 40px;
 	width: fit-content;
+	max-width: 450px;
 }
 .info-subject {
 	display: flex;
@@ -596,6 +597,7 @@ input:-webkit-autofill:active {
 	text-align: left;
 	background-color: #dbe6f4;
 	height: 40px;
+	max-height: 50px;
 	white-space: pre-line;
 	color: #617492;
 	font-size: 15px;
@@ -610,12 +612,14 @@ input:-webkit-autofill:active {
 }
 .list-subject div p {
 	margin: auto 5px auto 0;
+
 }
+/* отключено */
 .list-subject div textarea {
 	padding: 0;
 	text-align: left;
 	width: 100%;
-	max-width: 400px;
+	max-width: 80%;
 	margin: auto 0;
 	font-size: 12px;
 	color: #617492;
@@ -623,13 +627,18 @@ input:-webkit-autofill:active {
 .list-subject div textarea::placeholder {
 	color: #617492;
 }
+.list-subject div textarea:disabled {
+	color: #617492;
+	cursor: pointer;
+}
+/* до сюда */
 .list-subject div:hover {
 	background-color:#c2d0e3;
 }
 
 .block-graph {
 	padding: 35px 40px 40px 40px;
-	width: 400px;
+	max-width: 450px;
 }
 .block-graph-img {
 	background-color: #dbe6f4;
@@ -684,6 +693,7 @@ input:-webkit-autofill:active {
 	margin: 0 auto 20px auto;
 	min-height: fit-content;
 	display: block;
+	width: fit-content;
 	padding: 20px 40px;
 }
 .journal-btns {
@@ -694,16 +704,15 @@ input:-webkit-autofill:active {
 .journal-btns input{
 	vertical-align: middle;
 	width: fit-content;
-	padding: 0 18px;
-	font-size: 10px;
+	padding: 0 25px;
+	height: 40px;
+	font-size: 12px;
 	background-color: #dbe6f4;
-	height: 32px;
 	margin: 5px auto 0 0;
 }
 .journal-btns .name-theme {
 	font-family: 'rubick-light';
 	font-weight: lighter;
-	padding: 0 20px 0 20px;
 	background-color: #4f6384;
 	text-align: left;
     max-width: 250px;
@@ -728,22 +737,24 @@ input:-webkit-autofill:active {
   	background-position: center; /* Позиция изображения внутри инпута */
 }
 .block-journal {
-	padding: 0 20px 0 20px;
+	padding: 0 15px;
 	width: fit-content;
+	width: 100%;
 	position: relative;
-	margin: auto;
+	margin: 0;
 }
 .journal {
 	padding: 0;
 	margin: 0;
-	width: 593px;
+	width: 100%;
 	overflow: auto;
 }
 .journal table {
+	/* width: 80%; */
 	border-collapse: separate;
 	border-spacing: 8px;
 	empty-cells: show;
-	font-size: 10px;
+	font-size: 12px;
 	color: #617492;
 	font-size: 11px;
 	font-family: 'rubick-regular', Georgia, serif;
@@ -752,15 +763,15 @@ input:-webkit-autofill:active {
 	background-color: #dbe6f4;
 	width: fit-content;
 	border-radius: 50px;	
-	min-width: 25px;
-	height: 25px;
+	min-width: 27px;
+	height: 27px;
 }
 .journal th {
 	background-color: #dbe6f4;
 	width: fit-content;
 	border-radius: 50px;	
-	min-width: 25px;
-	height: 25px;
+	min-width: 27px;
+	height: 27px;
 }
 .table-fio {
 	border-spacing: 0px;
@@ -771,8 +782,8 @@ input:-webkit-autofill:active {
 }
 .journal input {
 	outline: none;
-	width: 25px;
-    height: 25px;
+	width: 27px;
+    height: 27px;
 	border-radius: 50px;
 	border: none;
     padding: 0;
@@ -1252,7 +1263,6 @@ html, body {
 	.item-settings-list {
 		margin: 10px 0;
 	}
-
 }
 
 /* 5. media 900px */
@@ -1318,7 +1328,7 @@ html, body {
 	}
 	.block-list-subject, .block-graph {
 		margin: auto;
-		padding: 40px 0 40px 0;
+		padding: 40px;
 	}
 
 	/* .main-block-journal {
@@ -1326,7 +1336,7 @@ html, body {
 		width: fit-content;
 	} */
 	.journal {
-		width: 400px;
+		width: 70vw;
 	}
 
 	.arrow-back-error-page {
@@ -1335,6 +1345,9 @@ html, body {
 
 	.helper-block-report {
 		display: none;
+	}
+	.main-block-journal {
+		padding: 40px;
 	}
 }
 
@@ -1427,7 +1440,7 @@ html, body {
 	/* .info-subject {
 		display: block;
 	} */
-	.info-subject div {
+	.info-subject div,select {
 		margin-top: 10px;
 	}
 	.list-subject, .inner-shadow{
@@ -1436,16 +1449,22 @@ html, body {
 		padding-bottom: 10px;
 	}
 	.block-list-subject, .block-graph{
-		padding: 40px 0 40px 0;
+		padding: 20px 0 20px 0;
 		width: 90%;
 	}
 	.journal-btns {
 		padding: 40px 10px;
 	}
+	.block-journal {
+		margin: 0 auto;
+		width: 85vw;
+	}
 	.journal {
-		max-width: 250px;
-		min-width: 200px;
+		max-width: 85vw;
 		margin-bottom: 40px;
+	}
+	.name-theme {
+		width: 100%;
 	}
 	.list-settings {
 		padding-top: 10px;
