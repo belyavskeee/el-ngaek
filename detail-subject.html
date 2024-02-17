@@ -40,15 +40,25 @@
 	<main>
 		<div class="auth-block main-block main-block-journal">
             <div class="buttons journal-btns">
-                <input id="journal-btn-prev" class="journal-prev" type="button">
+                <input id="back-arrow" class="journal-prev" type="button">
 				<input id="journal-name-date" type="button" value="01.08">
 				<input id="journal-name-gruop" type="button" value="гр. 2120">
-				<input id="journal-name-theme" class="name-theme" type="button" value='Лекция "Человек и общество в современных реалиях"'>
+				<div class="name-theme button-def-h40">
+					<textarea class="textarea-inner" name="" id="subject-name-textarea" rows="1" placeholder="Добавьте тему занятия"></textarea>
+				</div>
 				<input id="journal-hours" type="button" value="2 часа">
-				<input class="journal-settings" type="button"><br>
-				<input id="journal-btn-homework" type="button" value="Домашнее задание: стр. 7-22 конспект, стр. 23-24 вопросы 1-7 письменно">
-				<input id="journal-btn-comment" type="button" value="Принести двойные листочки">
+				<!-- <input class="journal-settings" type="button"><br> -->
+				
             </div>
+			<div class="buttons journal-btns" style="margin: 10px 0 5px 0;">
+				<div style="display: flex;">
+					<p style="margin: auto 0;">
+						Домашнее задание:
+					</p>
+					<!-- <textarea class="textarea-inner" style="color: #617492;" name="" id="" cols="30" rows="1" placeholder="Отсутствует" color="#617492"></textarea> -->
+				</div>
+				<input id="journal-btn-comment" type="button" value="Прикрепить файлы">
+			</div>
 			<div class="block-journal">
 				<div class="journal">
 					<table>
@@ -80,18 +90,6 @@
 							<td><input type="text" value=""></td>
 							<td><input type="text" value=""></td>
 							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							<td><input type="text" value=""></td>
-							
-							
 						</tr>
 						<!-- Добавьте аналогичные строки для других студентов -->
 						<tr>

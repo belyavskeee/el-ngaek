@@ -48,7 +48,7 @@ const swiper = new Swiper('.swiper', {
       }
     });
 
-    $('.arrow-back-error-page').on('click', function () {
+    $('#back-arrow').on('click', function () {
       parent.history.back(); return false;
     });
 

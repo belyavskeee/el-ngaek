@@ -175,7 +175,7 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: initial !important;
 }
 
-.form-input input, .buttons input, .button-defualt, .lecture-btn {
+.form-input input, .buttons input, .buttons div, .button-defualt, .lecture-btn {
 	cursor: pointer;
 	background-color: #c5d2e2;
 	border: none;
@@ -474,7 +474,7 @@ input:-webkit-autofill:active {
 	display: flex;
 	flex-wrap: wrap;
 }
-.info-subject div, select {
+.info-subject div, select, .button-def-h40 {
 	display: flex;
 	background-color: #dbe6f4;
 	width: fit-content;
@@ -539,7 +539,7 @@ input:-webkit-autofill:active {
 	overflow: hidden;
 }
 
-.info-subject .name-subject textarea::placeholder {
+.info-subject .name-subject textarea::placeholder, .textarea-inner::placeholder {
 	color: white;
 	font-size: 12px;
 }
@@ -694,28 +694,31 @@ input:-webkit-autofill:active {
 	min-height: fit-content;
 	display: block;
 	width: fit-content;
-	padding: 20px 40px;
+	padding: 30px;
 }
 .journal-btns {
 	padding: 0px 20px 0 20px;
 	margin: auto;
 	width: fit-content;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
-.journal-btns input{
+.journal-btns input, .journal-btns div{
 	vertical-align: middle;
 	width: fit-content;
 	padding: 0 25px;
 	height: 40px;
 	font-size: 12px;
 	background-color: #dbe6f4;
-	margin: 5px auto 0 0;
+	margin: 5px 5px 0 0;
 }
 .journal-btns .name-theme {
 	font-family: 'rubick-light';
 	font-weight: lighter;
 	background-color: #4f6384;
 	text-align: left;
-    max-width: 250px;
+    max-width: 300px;
 	color: #fff;
 	white-space: pre-line;
 }
@@ -1409,11 +1412,11 @@ html, body {
 	.main-block {
 		display: block;
 		width: 90%;
-		padding: 0 10px 10px 10px;
+		padding: 20px;
 	}
 
 	.account {
-		padding: 40px 0 0 0;
+		padding: 20px 0 0 0;
 		margin: 0 auto;
 		width: 90%;
 	}
@@ -1452,16 +1455,17 @@ html, body {
 		padding: 20px 0 20px 0;
 		width: 90%;
 	}
-	.journal-btns {
-		padding: 40px 10px;
-	}
 	.block-journal {
 		margin: 0 auto;
 		width: 85vw;
 	}
 	.journal {
 		max-width: 85vw;
-		margin-bottom: 40px;
+	}
+
+	.journal-btns input, .journal-btns div {
+		width: 100% !important;
+		max-width: 100% !important;
 	}
 	.name-theme {
 		width: 100%;
