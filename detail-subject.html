@@ -43,19 +43,18 @@
                 <input id="back-arrow" class="journal-prev" type="button">
 				<input id="journal-name-date" type="button" value="01.08">
 				<input id="journal-name-gruop" type="button" value="гр. 2120">
-				<div class="name-theme button-def-h40">
-					<textarea class="textarea-inner" name="" id="subject-name-textarea" rows="1" placeholder="Добавьте тему занятия"></textarea>
+				<div class="name-theme button-def-h40" id="name-theme">
+					<textarea class="textarea-inner" name="" id="lecture-name-textarea" rows="1" placeholder="Добавьте тему занятия"></textarea>
 				</div>
 				<input id="journal-hours" type="button" value="2 часа">
-				<!-- <input class="journal-settings" type="button"><br> -->
-				
+				<!-- <input class="journal-settings" type="button"><br> -->	
             </div>
-			<div class="buttons journal-btns" style="margin: 10px 0 5px 0;">
-				<div style="display: flex;">
+			<div class="buttons journal-btns" style="margin-top: 10px; margin-bottom: 5px; margin-left: auto; margin-right: auto;">
+				<div class="journal-homework" id="homework">
 					<p style="margin: auto 0;">
 						Домашнее задание:
 					</p>
-					<!-- <textarea class="textarea-inner" style="color: #617492;" name="" id="" cols="30" rows="1" placeholder="Отсутствует" color="#617492"></textarea> -->
+					<textarea class="textarea-inner textarea-homework"  name="" id="textarea-homework" cols="30" rows="1" placeholder="Отсутствует" color="#617492"></textarea>
 				</div>
 				<input id="journal-btn-comment" type="button" value="Прикрепить файлы">
 			</div>

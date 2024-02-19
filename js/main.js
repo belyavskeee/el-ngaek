@@ -106,6 +106,31 @@ const swiper = new Swiper('.swiper', {
 if ($("#lecture-name").length) {
   setSizeTextarea(document.getElementById("lecture-name"));
 }
+if ($("#textarea-homework").length) {
+  setSizeTextarea(document.getElementById("textarea-homework"));
+}
+
+
+//изменение объектов при растягивании экрана
+$(window).on('resize', function() {
+  var screenWidth = $(window).width();
+  autoResizeObjectsOnDetailSubject(screenWidth);
+});
+
+//модернизировать
+function autoResizeObjectsOnDetailSubject(screenWidth) {
+  if (screenWidth < 480) {
+    var aboveWidth = $('#journal-name-gruop').width();
+    $('.name-theme').width(aboveWidth);
+    $('.journal-homework').width(aboveWidth);
+  }
+}
+
+if ($("#lecture-name-textarea").length) {
+  var screenWidth = $(window).width();
+  setSizeTextarea(document.getElementById("lecture-name-textarea"));
+  autoResizeObjectsOnDetailSubject(screenWidth);
+}
 
 if ($("#hours-spent").length) {
   autoAdjustWidth(document.getElementById("hours-spent"));

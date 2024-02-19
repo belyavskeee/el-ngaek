@@ -708,7 +708,8 @@ input:-webkit-autofill:active {
 	vertical-align: middle;
 	width: fit-content;
 	padding: 0 25px;
-	height: 40px;
+	min-height: 40px;
+	max-height: 40px;
 	font-size: 12px;
 	background-color: #dbe6f4;
 	margin: 5px 5px 0 0;
@@ -719,12 +720,28 @@ input:-webkit-autofill:active {
 	background-color: #4f6384;
 	text-align: left;
     max-width: 300px;
+	max-height: none;
+	height: fit-content;
 	color: #fff;
 	white-space: pre-line;
 }
-#journal-btn-homework {
-	white-space: pre-line;
+
+.journal-homework {
+	display: flex;
+	max-width: 450px;
+	
 }
+.textarea-homework {
+	margin: auto 0;
+	color: #617492;
+	font-size: 11px;
+	font-family: 'rubick-regular', Georgia, serif;
+	text-align: left;
+}
+.textarea-homework::placeholder {
+	color: #617492;
+}
+
 .journal-btns .journal-prev {
 	background-color: #4f6384;
 	width: 50px;
@@ -1238,7 +1255,7 @@ html, body {
 	}
 
 	.main-block-journal {
-		padding: 20px 40px;
+		padding: 30px;
 	}
 	.block-registration img {
 		height: 300px;
@@ -1412,7 +1429,7 @@ html, body {
 	.main-block {
 		display: block;
 		width: 90%;
-		padding: 20px;
+		padding: 20px 0;
 	}
 
 	.account {
@@ -1462,14 +1479,21 @@ html, body {
 	.journal {
 		max-width: 85vw;
 	}
+	.journal-btns {
+		margin: 0 auto;
+		width: 85%;
+		padding: 0;
+	}
 
-	.journal-btns input, .journal-btns div {
-		width: 100% !important;
-		max-width: 100% !important;
+	.journal-btns input, .journal-btns div, .name-theme {
+		margin: 0 auto 5px auto;
+		width: 90%;
+		max-width: 90% !important;
 	}
-	.name-theme {
-		width: 100%;
+	.journal-prev {
+		width: 90% !important;
 	}
+
 	.list-settings {
 		padding-top: 10px;
 	}
