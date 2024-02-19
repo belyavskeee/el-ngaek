@@ -701,7 +701,7 @@ input:-webkit-autofill:active {
 	margin: auto;
 	width: fit-content;
 	display: flex;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	flex-wrap: wrap;
 }
 .journal-btns input, .journal-btns div{
@@ -729,7 +729,7 @@ input:-webkit-autofill:active {
 .journal-homework {
 	display: flex;
 	max-width: 450px;
-	
+
 }
 .textarea-homework {
 	margin: auto 0;
