@@ -257,10 +257,10 @@ if ($("#hours-total").length) {
   
   // Функция для применения стилей
   function applyStyles() {
-    if (!$('.custom-file-upload').hasClass('custom-file-upload-smaller')) {
-      $('.custom-file-upload').addClass('custom-file-upload-smaller');
-    $('.custom-file-upload').html('<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">Добавить еще файлы');
-    }
+      if (!$('.custom-file-upload').hasClass('custom-file-upload-smaller') && !$('.custom-file-upload').hasClass('input-files-journal')) {
+        $('.custom-file-upload').addClass('custom-file-upload-smaller');
+        $('.custom-file-upload').html('<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">Добавить еще файлы');
+      }
   }
   
   // Функция для обработки выбранных файлов
@@ -272,7 +272,7 @@ function handleFiles(files) {
     files = Array.from(files);
     // Проверяем общее количество файлов
     if (allFiles.length + files.length > 5) {
-      $('.custom-file-upload').html('<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">Общее число файлов достигнуто максимума');
+      $('.custom-file-upload').html('<input type="file" name="fileToUpload" id="fileToUpload" accept="image/*"><p>Общее число файлов достигнуто максимума</p>');
       
       return;
     }

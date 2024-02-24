@@ -985,6 +985,30 @@ input:-webkit-autofill:active {
     width: 100%;
 }
 
+.input-files-journal {
+	text-align: center;
+	padding: 0 30px;
+	height: 40px;
+	vertical-align: middle;
+	margin: 5px 0 0 0;
+}
+.input-files-journal:before  {
+	content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: none; /* Закругленные углы */
+    border-style: none; /* Стиль пунктира */
+    border-width: 4px; /* Увеличенная толщина пунктира */
+    border-color: #4f6384; /* Цвет пунктира */
+    pointer-events: none;
+    margin: 3px; /* Расстояние от границы до точек */
+    box-sizing: border-box; /* Учитываем padding внутри размеров элемента */
+    border-spacing: 15px; /* Расстояние между точками */
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -1033,6 +1057,20 @@ input:-webkit-autofill:active {
 	vertical-align: middle;
 	margin-right: 10px;
 }
+.lits-with-files-journal {
+	display: flex;
+	flex-wrap: wrap;
+}
+.lits-with-files-journal div {
+
+	height: 40px !important;
+	padding: 0 20px;
+	width: fit-content;
+}
+.lits-with-files-journal div img {
+	margin: 0;
+}
+
 
 
 
@@ -1506,6 +1544,23 @@ html, body {
 	.custom-file-upload {
 		padding: 70px 0;
 		width: 95%;
+	}
+	.input-files-journal {
+		padding: 0;
+		width: 90%;
+		margin: 0 auto 5px auto;
+	}
+	.lits-with-files-journal {
+		width: 100%;
+		margin: 10px auto 0 auto;
+	}
+	.lits-with-files-journal div {
+		padding: 0;
+		width: 90% !important;
+		
+	}
+	.lits-with-files-journal img {
+		margin-left: 20px !important;
 	}
 }
 
