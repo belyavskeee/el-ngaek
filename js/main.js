@@ -25,29 +25,36 @@ const swiper = new Swiper('.swiper', {
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   });
 
-  //уведомления
-  function notifyUser ($title, $message) {
-    var notification = new Notification ($title, {
+  // Функция для отправки уведомлений
+function notifyUser(title, message) {
+  // Проверка поддержки уведомлений
+  if (!("Notification" in window)) {
+    alert("Ваш браузер не поддерживает уведомления!");
+    return;
+  }
+
+  // Проверка прав доступа к уведомлениям
+  if (Notification.permission === "granted") {
+    // Создание и отправка уведомления
+    var notification = new Notification(title, {
       tag: "ache-mail",
-      body: $message,
+      body: message,
       icon: "images/iconnew.png"
     });
+  } else if (Notification.permission !== "denied") { // Если права не запрещены
+    // Запрос прав доступа к уведомлениям
+    Notification.requestPermission().then(function(permission) {
+      if (permission === "granted") {
+        var notification = new Notification(title, {
+          tag: "ache-mail",
+          body: message,
+          icon: "images/iconnew.png"
+        });
+      }
+    });
   }
-  function notifySet ($title, $message) {
-    if (!("Notification" in window))
-      alert("Ваш браузер не поддерживает уведомления!");
-    else if (Notification.permission === "granded")
-      setTimeout(notifyUser($title, $message), 4000);
-    else if (Notification.permissions !== "denied") { //если права не разрешены
-      Notification.requestPermission (function (permission) {
-        if (!('permission') in Notification)
-          Notification.permission = permission;
-        if (permission === "granted")
-        setTimeout(notifyUser($title, $message), 4000);
-      });
-    }
-  }
-  notifySet("Появилось новое расписание", "На 06.03.2024 появилось расписание");
+}
+notifyUser("Появилось новое расписание", "На 06.03.2024 появилось расписание");
 
     $('.btn-next').on('click', function () {
       swiper.slideNext();
