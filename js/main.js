@@ -23,8 +23,31 @@ const swiper = new Swiper('.swiper', {
     once: false, // whether animation should happen only once - while scrolling down
     mirror: false, // whether elements should animate out while scrolling past them
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
-  
   });
+
+  //уведомления
+  function notifyUser ($title, $message) {
+    var notification = new Notification ($title, {
+      tag: "ache-mail",
+      body: $message,
+      icon: "images/iconnew.png"
+    });
+  }
+  function notifySet ($title, $message) {
+    if (!("Notification" in window))
+      alert("Ваш браузер не поддерживает уведомления!");
+    else if (Notification.permission === "granded")
+      setTimeout(notifyUser($title, $message), 4000);
+    else if (Notification.permissions !== "denied") { //если права не разрешены
+      Notification.requestPermission (function (permission) {
+        if (!('permission') in Notification)
+          Notification.permission = permission;
+        if (permission === "granted")
+        setTimeout(notifyUser($title, $message), 4000);
+      });
+    }
+  }
+  notifySet("Появилось новое расписание", "На 06.03.2024 появилось расписание");
 
     $('.btn-next').on('click', function () {
       swiper.slideNext();
