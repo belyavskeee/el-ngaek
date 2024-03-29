@@ -1106,6 +1106,163 @@ footer p{
 	color: #a3abbb;
 }
 
+.messenger {
+	z-index: 2;
+	position: fixed;
+}
+.messenger-icon {
+	position: fixed;
+	right: 3%;
+	bottom: 5%;
+	background-color: #E8EFF9;
+	border-radius: 50px;
+	padding: 15px;
+	cursor: pointer;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.messenger-icon img {
+	width: 40px;
+	vertical-align: middle;
+}
+.new-messenges {
+	z-index: 2;
+	right: 0;
+	top: -3px;
+	border-radius: 10px;
+	padding: 2px 6px;
+	position: absolute;
+	background-color: #4E6384;
+	color: white;
+	font-size: 14px;
+	font-family: 'rubick-regular', Georgia, serif;
+}
+.messenger-icon:hover {
+	background-color: #c8cfdd;
+}
+.messenger .block-messenger {
+	z-index: 2;
+	/* display: none; */
+	top: 92%;
+	right: 5%;
+	position: fixed;
+	height: 0px;
+	width: 0px;
+	border-radius: 30px 0 0 30px;
+	background-color: #E8EFF9;
+	overflow: hidden;
+	-webkit-transition-duration: 1s; /* Safari */
+	transition-duration: 1s;
+}
+.open-messenger {
+	display: block !important;
+	top: 0 !important;
+	right: 0 !important;
+	position: fixed;
+	height: 100vh !important;
+	width: 400px !important;
+	box-shadow: -10px 0px 100px #4E6384;
+}
+.block-messenger-tools {
+	justify-content: space-between;
+	display: flex;
+	margin: 10px;
+}
+.messenger-tool-close {
+	cursor: pointer;
+	padding: 10px;
+	background-color: #DBE6F4;
+	border-radius: 50px;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.messenger-tool-close:hover, .messenger-messanges-item:hover {
+	background-color: #c8cfdd;
+}
+.messenger-tool-close img {
+	width: 17px;
+	vertical-align: middle;
+}
+.messenger-tool-new-chat, .messenger-tool-search  {
+	cursor: pointer;
+	padding: 0px 30px;
+	color: white;
+	font-size: 30px;
+	background-color: #4E6384;
+	border-radius: 50px;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.messenger-tool-new-chat:hover, .messenger-tool-search:hover {
+	background-color: #617492;
+}
+.messenger-tool-new-chat img, .messenger-tool-search svg {
+	width: 17px;
+	vertical-align: middle;
+}
+.messenger-tool-search {
+	margin-left: 5px;
+	padding: 0 10px;
+}
+.messenger-tool-search svg {
+	width: 30px;
+}
+.block-messenger-messanges {
+	margin: 25px 10px 10px 10px;
+	height: 85%;
+	overflow: auto;
+}
+.messenger-messanges-item {
+	cursor: pointer;
+	padding: 8px;
+	margin-bottom: 5px;
+	margin-right: 3px;
+	display: flex;
+	background-color: #DBE6F4;
+	border-radius: 50px;
+	width: -webkit-fill-available;
+	-webkit-transition-duration: 0.3s; /* Safari */
+	transition-duration: 0.3s;
+}
+.messenger-messanges-item-avatar {
+	position: relative;
+	min-width: 70px;
+	height: 70px !important;
+	border-radius: 100px;
+	background-color: white;
+}
+.messenger-messanges-item-avatar img {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+.block-messanges-item-text {
+	margin: auto 10px;
+	width: 100%;
+}
+.block-messanges-item-text h4 {
+	color: #4E6384;
+	margin: 0;
+}
+.block-messanges-item-text p {
+	margin: 0;
+	text-align: left;
+	overflow: hidden;
+  	text-overflow: ellipsis;
+  	/* white-space: nowrap; */
+  	display: -webkit-box; /* Эти свойства необходимы для многоточия в две строки */
+  	-webkit-line-clamp: 2; /* Ограничивает количество строк до 2 */
+  	-webkit-box-orient: vertical; /* Устанавливает вертикальную ориентацию для контейнера */
+}
+.messenger-messanges-notification {
+	background-color: #4E6384;
+}
+.messenger-messanges-notification h4, .messenger-messanges-notification p {
+	color: white;
+}
 
 
 /* 4. helpers */
@@ -1279,6 +1436,16 @@ html, body {
 	margin: 0;
 	padding: 0;
   }
+
+  .text-default-bold{
+	font-size: 14px;
+	font-family: 'rubick-regular', 'courier new', sans-serif;
+	font-weight: bold;
+}
+.text-default{
+	font-size: 14px;
+	font-family: 'rubick-regular', 'courier new', sans-serif;
+}
 
 
 
@@ -1561,6 +1728,21 @@ html, body {
 	}
 	.lits-with-files-journal img {
 		margin-left: 20px !important;
+	}
+	/* Мессенджер */
+	.messenger .block-messenger {
+		top: 92%;
+		right: 5%;
+		border-radius: 0;
+		box-shadow: none;
+	}
+	.open-messenger {
+		display: block !important;
+		top: 0 !important;
+		right: 0 !important;
+		position: fixed;
+		height: 100vh !important;
+		width: 100% !important;
 	}
 }
 

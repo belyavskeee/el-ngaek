@@ -25,54 +25,6 @@ const swiper = new Swiper('.swiper', {
     anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
   });
 
-  if (Notification.permission !== 'granted') {
-    Notification.requestPermission();
-  }
-  
-  function sendNotification(title, body) {
-    if (Notification.permission === 'granted') {
-      new Notification(title, { 
-        tag: "ache-mail",
-        body: body,
-        icon: "images/iconnew.png"
-      });
-    }
-  }
-  
-  // Пример использования
-  sendNotification('Новое расписание', 'Доступно расписание на четверг 04.03.2024.');
-
-//   // Функция для отправки уведомлений
-// function notifyUser(title, message) {
-//   // Проверка поддержки уведомлений
-//   if (!("Notification" in window)) {
-//     alert("Ваш браузер не поддерживает уведомления!");
-//     return;
-//   }
-
-  // Проверка прав доступа к уведомлениям
-//   if (Notification.permission === "granted") {
-//     // Создание и отправка уведомления
-//     var notification = new Notification(title, {
-//       tag: "ache-mail",
-//       body: message,
-//       icon: "images/iconnew.png"
-//     });
-//   } else if (Notification.permission !== "denied") { // Если права не запрещены
-//     // Запрос прав доступа к уведомлениям
-//     Notification.requestPermission().then(function(permission) {
-//       if (permission === "granted") {
-//         var notification = new Notification(title, {
-//           tag: "ache-mail",
-//           body: message,
-//           icon: "images/iconnew.png"
-//         });
-//       }
-//     });
-//   }
-// }
-// notifyUser("Появилось новое расписание", "На 06.03.2024 появилось расписание");
-
     $('.btn-next').on('click', function () {
       swiper.slideNext();
     });
@@ -103,6 +55,21 @@ const swiper = new Swiper('.swiper', {
       location.href = "settings.html";
       $(this).css({'transform': 'rotate(180deg)'});
     });
+
+    $('.messenger-icon').on('click', function () {
+        if (!$('.block-messenger').hasClass('open-messenger')) {
+          $('.block-messenger').addClass('open-messenger');
+          $('.messenger-icon').fadeOut('fast', function () {});
+        }
+      
+    });
+    $('.messenger-tool-close').on('click', function () {
+      if ($('.block-messenger').hasClass('open-messenger')) {
+        $('.block-messenger').removeClass('open-messenger');
+        $('.messenger-icon').fadeIn();
+      }
+    
+  });
 
     $(document).ready(function() {
       // Получаем ширину родительского блока
