@@ -1111,6 +1111,7 @@ footer p{
 	position: fixed;
 }
 .messenger-icon {
+	z-index: 1;
 	position: fixed;
 	right: 3%;
 	bottom: 5%;
@@ -1141,7 +1142,7 @@ footer p{
 	background-color: #c8cfdd;
 }
 .messenger .block-messenger {
-	z-index: 2;
+	z-index: 1;
 	/* display: none; */
 	top: 92%;
 	right: 5%;
@@ -1207,12 +1208,29 @@ footer p{
 .messenger-tool-search svg {
 	width: 30px;
 }
+
+.messenger-tool-search-string input{
+	background-color: transparent;
+	outline: none;
+	border: none;
+	margin: 0 10px;
+	width: 92%;
+	font-size: 14px;
+	font-family: 'rubick-regular', 'courier new', sans-serif;
+	color: #4E6384;
+}
+.messenger-tool-search-string input::placeholder{
+	font-size: 14px;
+	font-family: 'rubick-regular', 'courier new', sans-serif;
+	color: #4E6384;
+}
+
 .block-messenger-messanges {
 	margin: 25px 10px 10px 10px;
 	height: 85%;
 	overflow: auto;
 }
-.messenger-messanges-item {
+.messenger-messanges-item, .messenger-tool-search-string {
 	cursor: pointer;
 	padding: 8px;
 	margin-bottom: 5px;
@@ -1223,6 +1241,10 @@ footer p{
 	width: -webkit-fill-available;
 	-webkit-transition-duration: 0.3s; /* Safari */
 	transition-duration: 0.3s;
+}
+.messenger-tool-search-string {
+	display: none;
+	background-color: #DBE6F4;
 }
 .messenger-messanges-item-avatar {
 	position: relative;
@@ -1252,8 +1274,7 @@ footer p{
 	text-align: left;
 	overflow: hidden;
   	text-overflow: ellipsis;
-  	/* white-space: nowrap; */
-  	display: -webkit-box; /* Эти свойства необходимы для многоточия в две строки */
+  	display: -webkit-box; /*многоточия в две строки */
   	-webkit-line-clamp: 2; /* Ограничивает количество строк до 2 */
   	-webkit-box-orient: vertical; /* Устанавливает вертикальную ориентацию для контейнера */
 }
@@ -1262,6 +1283,13 @@ footer p{
 }
 .messenger-messanges-notification h4, .messenger-messanges-notification p {
 	color: white;
+}
+.messenger-chat {
+	position: relative;
+	top: 0;
+	z-index: 3;
+	background-color: #000;
+	height: 90%;
 }
 
 
@@ -1703,7 +1731,12 @@ html, body {
 		padding-top: 10px;
 	}
 	.item-settings-list {
+		width: 80%;
+		margin: 10px auto;
 		border-radius: 40px;
+	}
+	.item-settings-list:first-child {
+		margin: 0px auto;
 	}
 	.textarea-default {
 		width: 70%;

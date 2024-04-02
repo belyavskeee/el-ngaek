@@ -60,6 +60,7 @@ const swiper = new Swiper('.swiper', {
         if (!$('.block-messenger').hasClass('open-messenger')) {
           $('.block-messenger').addClass('open-messenger');
           $('.messenger-icon').fadeOut('fast', function () {});
+          $('body').css('overflow', 'hidden');
         }
       
     });
@@ -67,8 +68,15 @@ const swiper = new Swiper('.swiper', {
       if ($('.block-messenger').hasClass('open-messenger')) {
         $('.block-messenger').removeClass('open-messenger');
         $('.messenger-icon').fadeIn();
+        $('body').css('overflow', 'auto');
       }
-    
+  });
+  $('.messenger-tool-search, .messenger-tool-new-chat').on('click', function () {
+    if ($('.messenger-tool-search-string').css('display') === 'none') {
+      $('.messenger-tool-search-string').fadeIn()
+    } else {
+      $('.messenger-tool-search-string').fadeOut(); // Или другая анимация
+    }
   });
 
     $(document).ready(function() {
